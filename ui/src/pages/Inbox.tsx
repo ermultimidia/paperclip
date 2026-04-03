@@ -122,8 +122,8 @@ function runFailureMessage(t: any, run: Partial<HeartbeatRun>): string {
   return run.error || t("page.inbox.items.run_error");
 }
 
-function approvalStatusLabel(status: Approval["status"]): string {
-  return status.replaceAll("_", " ");
+function approvalStatusLabel(t: any, status: Approval["status"]): string {
+  return t(`status.${status}`, { defaultValue: status.replaceAll("_", " ") });
 }
 
 function readIssueIdFromRun(run: HeartbeatRun): string | null {
@@ -384,6 +384,7 @@ export function FailedRunInboxRow({
   archiveDisabled,
   selected = false,
   className,
+  t,
 }: {
   run: HeartbeatRun;
   issueById: Map<string, Issue>;
@@ -398,10 +399,10 @@ export function FailedRunInboxRow({
   archiveDisabled?: boolean;
   selected?: boolean;
   className?: string;
+  t: any;
 }) {
   const issueId = readIssueIdFromRun(run);
   const issue = issueId ? issueById.get(issueId) ?? null : null;
-  const { t } = useTranslation();
   const displayError = runFailureMessage(t, run);
   const showUnreadSlot = unreadState !== null;
   const showUnreadDot = unreadState === "visible" || unreadState === "fading";
@@ -422,7 +423,7 @@ export function FailedRunInboxRow({
                   "inline-flex h-4 w-4 items-center justify-center rounded-full transition-colors",
                   "hover:bg-blue-500/20",
                 )}
-                aria-label="Mark as read"
+                aria-label={t("page.inbox.actions.mark_as_read")}
               >
                 <span className={cn(
                   "block h-2 w-2 rounded-full transition-opacity duration-300",
@@ -436,7 +437,7 @@ export function FailedRunInboxRow({
                 onClick={onArchive}
                 disabled={archiveDisabled}
                 className="inline-flex h-4 w-4 items-center justify-center rounded-md text-muted-foreground opacity-0 transition-opacity hover:text-foreground group-hover:opacity-100 disabled:pointer-events-none disabled:opacity-30"
-                aria-label="Dismiss from inbox"
+                aria-label={t("page.inbox.actions.dismiss")}
               >
                 <X className="h-3.5 w-3.5" />
               </button>
@@ -541,6 +542,7 @@ function ApprovalInboxRow({
   archiveDisabled,
   selected = false,
   className,
+  t,
 }: {
   approval: Approval;
   requesterName: string | null;
@@ -553,8 +555,8 @@ function ApprovalInboxRow({
   archiveDisabled?: boolean;
   selected?: boolean;
   className?: string;
+  t: any;
 }) {
-  const { t } = useTranslation();
   const Icon = typeIcon[approval.type] ?? defaultTypeIcon;
   const label = approvalLabel(approval.type, approval.payload as Record<string, unknown> | null);
   const showResolutionButtons =
@@ -579,7 +581,7 @@ function ApprovalInboxRow({
                   "inline-flex h-4 w-4 items-center justify-center rounded-full transition-colors",
                   "hover:bg-blue-500/20",
                 )}
-                aria-label="Mark as read"
+                aria-label={t("page.inbox.actions.mark_as_read")}
               >
                 <span className={cn(
                   "block h-2 w-2 rounded-full transition-opacity duration-300",
@@ -593,7 +595,7 @@ function ApprovalInboxRow({
                 onClick={onArchive}
                 disabled={archiveDisabled}
                 className="inline-flex h-4 w-4 items-center justify-center rounded-md text-muted-foreground opacity-0 transition-opacity hover:text-foreground group-hover:opacity-100 disabled:pointer-events-none disabled:opacity-30"
-                aria-label="Dismiss from inbox"
+                aria-label={t("page.inbox.actions.dismiss")}
               >
                 <X className="h-3.5 w-3.5" />
               </button>
@@ -619,7 +621,7 @@ function ApprovalInboxRow({
               {label}
             </span>
             <span className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-muted-foreground">
-              <span className="capitalize">{approvalStatusLabel(approval.status)}</span>
+              <span>{approvalStatusLabel(t, approval.status)}</span>
               {requesterName ? <span>{t("page.inbox.labels.requested_by", { name: requesterName })}</span> : null}
               <span>{t("page.inbox.labels.updated", { time: timeAgo(approval.updatedAt) })}</span>
             </span>
@@ -655,7 +657,7 @@ function ApprovalInboxRow({
             onClick={onApprove}
             disabled={isPending}
           >
-            Approve
+            {t("page.inbox.actions.approve")}
           </Button>
           <Button
             variant="destructive"
@@ -664,7 +666,7 @@ function ApprovalInboxRow({
             onClick={onReject}
             disabled={isPending}
           >
-            Reject
+            {t("page.inbox.actions.reject")}
           </Button>
         </div>
       ) : null}
@@ -683,6 +685,7 @@ function JoinRequestInboxRow({
   archiveDisabled,
   selected = false,
   className,
+  t,
 }: {
   joinRequest: JoinRequest;
   onApprove: () => void;
@@ -694,8 +697,8 @@ function JoinRequestInboxRow({
   archiveDisabled?: boolean;
   selected?: boolean;
   className?: string;
+  t: any;
 }) {
-  const { t } = useTranslation();
   const label =
     joinRequest.requestType === "human"
       ? t("page.inbox.labels.human_join_request")
@@ -765,7 +768,7 @@ function JoinRequestInboxRow({
             onClick={onApprove}
             disabled={isPending}
           >
-            Approve
+            {t("page.inbox.actions.approve")}
           </Button>
           <Button
             variant="destructive"
@@ -774,7 +777,7 @@ function JoinRequestInboxRow({
             onClick={onReject}
             disabled={isPending}
           >
-            Reject
+            {t("page.inbox.actions.reject")}
           </Button>
         </div>
       </div>

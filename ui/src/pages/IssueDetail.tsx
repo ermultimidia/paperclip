@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState, type ChangeEvent, type DragEvent } from "react";
 import { pickTextColorForPillBg } from "@/lib/color-contrast";
+import { useTranslation } from "react-i18next";
 import { Link, useLocation, useNavigate, useParams } from "@/lib/router";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { issuesApi } from "../api/issues";
@@ -83,31 +84,6 @@ type IssueDetailComment = (IssueComment | OptimisticIssueComment) & {
   queueTargetRunId?: string | null;
 };
 
-const ACTION_LABELS: Record<string, string> = {
-  "issue.created": "created the issue",
-  "issue.updated": "updated the issue",
-  "issue.checked_out": "checked out the issue",
-  "issue.released": "released the issue",
-  "issue.comment_added": "added a comment",
-  "issue.feedback_vote_saved": "saved feedback on an AI output",
-  "issue.attachment_added": "added an attachment",
-  "issue.attachment_removed": "removed an attachment",
-  "issue.document_created": "created a document",
-  "issue.document_updated": "updated a document",
-  "issue.document_deleted": "deleted a document",
-  "issue.deleted": "deleted the issue",
-  "agent.created": "created an agent",
-  "agent.updated": "updated the agent",
-  "agent.paused": "paused the agent",
-  "agent.resumed": "resumed the agent",
-  "agent.terminated": "terminated the agent",
-  "heartbeat.invoked": "invoked a heartbeat",
-  "heartbeat.cancelled": "cancelled a heartbeat",
-  "approval.created": "requested approval",
-  "approval.approved": "approved",
-  "approval.rejected": "rejected",
-};
-
 const FEEDBACK_TERMS_URL = import.meta.env.VITE_FEEDBACK_TERMS_URL?.trim() || "https://paperclip.ing/tos";
 
 function humanizeValue(value: unknown): string {
@@ -162,50 +138,6 @@ function titleizeFilename(input: string) {
     .filter(Boolean)
     .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
     .join(" ");
-}
-
-function formatAction(action: string, details?: Record<string, unknown> | null): string {
-  if (action === "issue.updated" && details) {
-    const previous = (details._previous ?? {}) as Record<string, unknown>;
-    const parts: string[] = [];
-
-    if (details.status !== undefined) {
-      const from = previous.status;
-      parts.push(
-        from
-          ? `changed the status from ${humanizeValue(from)} to ${humanizeValue(details.status)}`
-          : `changed the status to ${humanizeValue(details.status)}`
-      );
-    }
-    if (details.priority !== undefined) {
-      const from = previous.priority;
-      parts.push(
-        from
-          ? `changed the priority from ${humanizeValue(from)} to ${humanizeValue(details.priority)}`
-          : `changed the priority to ${humanizeValue(details.priority)}`
-      );
-    }
-    if (details.assigneeAgentId !== undefined || details.assigneeUserId !== undefined) {
-      parts.push(
-        details.assigneeAgentId || details.assigneeUserId
-          ? "assigned the issue"
-          : "unassigned the issue",
-      );
-    }
-    if (details.title !== undefined) parts.push("updated the title");
-    if (details.description !== undefined) parts.push("updated the description");
-
-    if (parts.length > 0) return parts.join(", ");
-  }
-  if (
-    (action === "issue.document_created" || action === "issue.document_updated" || action === "issue.document_deleted") &&
-    details
-  ) {
-    const key = typeof details.key === "string" ? details.key : "document";
-    const title = typeof details.title === "string" && details.title ? ` (${details.title})` : "";
-    return `${ACTION_LABELS[action] ?? action} ${key}${title}`;
-  }
-  return ACTION_LABELS[action] ?? action.replace(/[._]/g, " ");
 }
 
 function mergeOptimisticFeedbackVote(
@@ -266,17 +198,72 @@ function mergeOptimisticFeedbackVote(
 }
 
 function ActorIdentity({ evt, agentMap }: { evt: ActivityEvent; agentMap: Map<string, Agent> }) {
+  const { t } = useTranslation();
   const id = evt.actorId;
+  const actorKind = (evt as any).actorKind;
+
   if (evt.actorType === "agent") {
     const agent = agentMap.get(id);
     return <Identity name={agent?.name ?? id.slice(0, 8)} size="sm" />;
   }
-  if (evt.actorType === "system") return <Identity name="System" size="sm" />;
-  if (evt.actorType === "user") return <Identity name="Board" size="sm" />;
+  if (actorKind === "system") return <span className="font-medium text-foreground">{t("page.issueDetail.actions.actors.system", "System")}</span>;
+  if (actorKind === "board") return <span className="font-medium text-foreground">{t("page.issueDetail.actions.actors.board", "Board")}</span>;
   return <Identity name={id || "Unknown"} size="sm" />;
 }
 
 export function IssueDetail() {
+  const { t } = useTranslation();
+  const ACTION_LABELS: Record<string, string> = {
+    "issue.created": t("page.issueDetail.actions.labels.created", "created the issue"),
+    "issue.updated": t("page.issueDetail.actions.labels.updated", "updated the issue"),
+    "issue.comment_added": t("page.issueDetail.actions.labels.commented", "commented"),
+    "issue.status_changed": t("page.issueDetail.actions.labels.status_changed", "changed the status"),
+    "issue.assigned": t("page.issueDetail.actions.labels.assigned", "assigned the issue"),
+    "issue.unassigned": t("page.issueDetail.actions.labels.unassigned", "removed the assignee"),
+    "issue.depth_changed": t("page.issueDetail.actions.labels.depth_changed", "changed the depth"),
+    "issue.reassigned": t("page.issueDetail.actions.labels.reassigned", "reassigned the issue"),
+  };
+
+  const formatAction = (action: string, details: any, agentMap: Map<string, Agent>, currentUserId: string | null) => {
+    if (action === "issue.status_changed") {
+      return (
+        <>
+          {t("page.issueDetail.actions.labels.status_changed", "changed the status")}{" "}
+          {t("page.issueDetail.actions.labels.from", "from")} <strong>{details.old}</strong>{" "}
+          {t("page.issueDetail.actions.labels.to", "to")} <strong>{details.new}</strong>
+        </>
+      );
+    }
+    if (action === "issue.assigned" || action === "issue.unassigned") {
+      const actorName = details?.assigneeAgentId
+        ? agentMap.get(details.assigneeAgentId)?.name ?? details.assigneeAgentId.slice(0, 8)
+        : details?.assigneeUserId
+          ? "User"
+          : null;
+
+      if (!actorName) return ACTION_LABELS[action] ?? action;
+
+      return (
+        <>
+          {action === "issue.assigned"
+            ? t("page.issueDetail.actions.labels.assigned", "assigned the issue")
+            : t("page.issueDetail.actions.labels.unassigned", "removed the assignee")}{" "}
+          {t("page.issueDetail.actions.labels.to", "to")} <strong>{actorName}</strong>
+        </>
+      );
+    }
+    if (action === "issue.depth_changed") {
+      return (
+        <>
+          {t("page.issueDetail.actions.labels.depth_changed", "changed the depth")}{" "}
+          {t("page.issueDetail.actions.labels.from", "from")} <strong>{details.old}</strong>{" "}
+          {t("page.issueDetail.actions.labels.to", "to")} <strong>{details.new}</strong>
+        </>
+      );
+    }
+    return ACTION_LABELS[action] ?? action;
+  };
+
   const { issueId } = useParams<{ issueId: string }>();
   const { selectedCompanyId, selectedCompany } = useCompany();
   const { openPanel, closePanel, panelVisible, setPanelVisible } = usePanel();

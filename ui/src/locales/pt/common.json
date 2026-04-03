@@ -1,151 +1,176 @@
 {
-  "common": {
-    "sidebar": {
-      "new_issue": "Nova Tarefa",
-      "search": "Buscar",
-      "dashboard": "Painel",
-      "goals": "Metas",
-      "approvals": "Aprovações",
-      "runs": "Execuções",
-      "live_runs": "Em Tempo Real",
-      "heartbeat": "Monitoramento",
-      "settings": "Configurações",
-      "teams": "Equipes",
-      "members": "Membros",
-      "pending": "Pedidos de Adesão",
-      "projects": "Projetos",
-      "inbox": "Entrada",
-      "sections": {
-        "work": "Trabalho",
-        "company": "Empresa"
-      },
-      "work": {
-        "tasks": "Tarefas",
-        "routines": "Rotinas"
-      },
-      "company_menu": {
-        "org": "Org",
-        "skills": "Habilidades",
-        "costs": "Custos",
-        "activity": "Atividade",
-        "select": "Selecionar empresa"
-      }
+  "sidebar": {
+    "new_issue": "Novo Chamado",
+    "search": "Buscar",
+    "dashboard": "Painel",
+    "goals": "Objetivos",
+    "approvals": "Aprovações",
+    "runs": "Execuções",
+    "live_runs": "Execuções ao Vivo",
+    "heartbeat": "Monitoramento",
+    "settings": "Configurações",
+    "teams": "Equipes",
+    "members": "Membros",
+    "pending": "Solicitações",
+    "projects": "Projetos",
+    "inbox": "Caixa de Entrada",
+    "sections": {
+      "work": "Trabalho",
+      "company": "Empresa"
     },
-    "dashboard": {
-      "welcome": "Bem-vindo ao Paperclip. Configure sua primeira empresa e agente para começar.",
-      "get_started": "Começar",
-      "select_company": "Crie ou selecione uma empresa para visualizar o painel.",
-      "no_agents": "Você não tem agentes.",
-      "create_one": "Crie um aqui",
-      "active_budget_incidents_one": "{{count}} incidente de orçamento ativo",
-      "active_budget_incidents_other": "{{count}} incidentes de orçamento ativos",
-      "paused": {
-        "agents_one": "{{count}} agente pausado",
-        "agents_other": "{{count}} agentes pausados",
-        "projects_one": "{{count}} projeto pausado",
-        "projects_other": "{{count}} projetos pausados",
-        "approvals_one": "{{count}} aprovação de orçamento pendente",
-        "approvals_other": "{{count}} aprovações de orçamento pendentes"
-      },
-      "open_budgets": "Abrir orçamentos",
-      "active_agents": "Agentes Ativos",
-      "success_rate": "Taxa de Sucesso",
-      "avg_resolution_time": "Tempo Médio de Resolução",
-      "open_issues": "Problemas Abertos",
-      "total_cost": "Custo Total",
-      "human_interventions": "Intervenções Humanas",
-      "activity_over_time": "Atividade ao Longo do Tempo",
-      "issue_distribution": "Distribuição de Problemas"
+    "work": {
+      "tasks": "Tarefas",
+      "routines": "Rotinas"
     },
-    "activity": {
-      "title": "Atividade",
-      "no_activity": "Nenhuma atividade recente.",
-      "view_all": "Ver tudo",
-      "actors": {
-        "system": "Sistema",
-        "board": "Quadro",
-        "unknown": "Desconhecido"
-      },
-      "verbs": {
-        "issue.created": "criou",
-        "issue.updated": "atualizou",
-        "issue.checked_out": "fez checkout de",
-        "issue.released": "liberou",
-        "issue.comment_added": "comentou em",
-        "issue.attachment_added": "anexou arquivo a",
-        "issue.attachment_removed": "removeu anexo de",
-        "issue.document_created": "criou documento para",
-        "issue.document_updated": "atualizou documento em",
-        "issue.document_deleted": "excluiu documento de",
-        "issue.commented": "comentou em",
-        "issue.deleted": "excluiu",
-        "agent.created": "criou",
-        "agent.updated": "atualizou",
-        "agent.paused": "pausou",
-        "agent.resumed": "retomou",
-        "agent.terminated": "encerrou",
-        "agent.key_created": "criou chave de API para",
-        "agent.budget_updated": "atualizou o orçamento de",
-        "agent.runtime_session_reset": "redefiniu a sessão de",
-        "heartbeat.invoked": "invocou pulsação para",
-        "heartbeat.cancelled": "cancelou pulsação para",
-        "approval.created": "solicitou aprovação",
-        "approval.approved": "aprovou",
-        "approval.rejected": "rejeitou",
-        "project.created": "criou",
-        "project.updated": "atualizou",
-        "project.deleted": "excluiu",
-        "goal.created": "criou",
-        "goal.updated": "atualizou",
-        "goal.deleted": "excluiu",
-        "cost.reported": "relatou custo para",
-        "cost.recorded": "registrou custo para",
-        "company.created": "criou empresa",
-        "company.updated": "atualizou empresa",
-        "company.archived": "arquivou",
-        "company.budget_updated": "atualizou o orçamento de"
-      },
-      "changed_status": "alterou o status de {{from}} para {{to}} em",
-      "changed_status_to": "alterou o status para {{to}} em",
-      "changed_priority": "alterou a prioridade de {{from}} para {{to}} em",
-      "changed_priority_to": "alterou a prioridade para {{to}} em"
+    "company_menu": {
+      "org": "Org",
+      "skills": "Habilidades",
+      "costs": "Custos",
+      "activity": "Atividade",
+      "select": "Selecionar empresa"
     }
+  },
+  "dashboard": {
+    "welcome": "Bem-vindo ao Paperclip. Configure sua primeira empresa e agente para começar.",
+    "get_started": "Começar",
+    "select_company": "Crie ou selecione uma empresa para visualizar o painel.",
+    "no_agents": "Você não possui agentes.",
+    "create_one": "Crie um aqui",
+    "active_budget_incidents_one": "{{count}} incidente de orçamento ativo",
+    "active_budget_incidents_other": "{{count}} incidentes de orçamento ativos",
+    "agents_count_one": "{{count}} agente",
+    "agents_count_other": "{{count}} agentes",
+    "issues_count_one": "{{count}} problema",
+    "issues_count_other": "{{count}} problemas",
+    "paused": {
+      "agents_one": "{{count}} agente pausado",
+      "agents_other": "{{count}} agentes pausados",
+      "projects_one": "{{count}} projeto pausado",
+      "projects_other": "{{count}} projetos pausados",
+      "approvals_one": "{{count}} aprovação de orçamento pendente",
+      "approvals_other": "{{count}} aprovações de orçamento pendentes"
+    },
+    "open_budgets": "Orçamentos abertos",
+    "active_agents": "Agentes Ativos",
+    "success_rate": "Taxa de Sucesso",
+    "avg_resolution_time": "Tempo Médio de Resolução",
+    "open_issues": "Chamados Abertos",
+    "total_cost": "Custo Total",
+    "human_interventions": "Intervenções Humanas",
+    "activity_over_time": "Atividade ao Longo do Tempo",
+    "issue_distribution": "Distribuição de Chamados",
+    "metrics": {
+      "agents_enabled": "Agentes Ativos",
+      "agents_description": "{{running}} em execução · {{paused}} pausados · {{error}} erro",
+      "tasks_in_progress": "Tarefas em Andamento",
+      "tasks_description": "{{open}} abertas · {{blocked}} bloqueadas",
+      "month_spend": "Gasto do Mês",
+      "month_spend_description": "{{percent}}% do orçamento mensal de {{budget}} utilizado",
+      "unlimited_budget": "Orçamento ilimitado",
+      "pending_approvals": "Aprovações Pendentes",
+      "pending_approvals_description": "Sem solicitações de orçamento pendentes",
+      "budget_overrides_description": "{{count}} solicitações de orçamento pendentes"
+    },
+    "charts": {
+      "run_activity": "Atividade de Execução",
+      "last_14_days": "Últimos 14 dias",
+      "issues_priority": "Chamados por Prioridade",
+      "issues_status": "Chamados por Status",
+      "success_rate": "Taxa de Sucesso"
+    },
+    "recent_activity": "Atividade Recente",
+    "recent_tasks": "Tarefas Recentes",
+    "no_tasks": "Nenhuma tarefa recente."
+  },
+  "activity": {
+    "title": "Atividade",
+    "no_activity": "Nenhuma atividade recente.",
+    "view_all": "Ver tudo",
+    "actors": {
+      "system": "Sistema",
+      "board": "Quadro",
+      "unknown": "Desconhecido"
+    },
+    "verbs": {
+      "issue.created": "criou",
+      "issue.updated": "atualizou",
+      "issue.checked_out": "assinou",
+      "issue.released": "liberou",
+      "issue.comment_added": "comentou em",
+      "issue.attachment_added": "anexou arquivo em",
+      "issue.attachment_removed": "removeu anexo de",
+      "issue.document_created": "criou documento para",
+      "issue.document_updated": "atualizou documento em",
+      "issue.document_deleted": "excluiu documento de",
+      "issue.commented": "comentou em",
+      "issue.deleted": "excluiu",
+      "agent.created": "criou",
+      "agent.updated": "atualizou",
+      "agent.paused": "pausou",
+      "agent.resumed": "retomou",
+      "agent.terminated": "encerrou",
+      "agent.key_created": "criou chave de API para",
+      "agent.budget_updated": "atualizou orçamento de",
+      "agent.runtime_session_reset": "reiniciou sessão de",
+      "heartbeat.invoked": "invocou monitoramento para",
+      "heartbeat.cancelled": "cancelou monitoramento para",
+      "approval.created": "solicitou aprovação",
+      "approval.approved": "aprovou",
+      "approval.rejected": "rejeitou",
+      "project.created": "criou",
+      "project.updated": "atualizou",
+      "project.deleted": "excluiu",
+      "goal.created": "criou",
+      "goal.updated": "atualizou",
+      "goal.deleted": "excluiu",
+      "cost.reported": "reportou custo para",
+      "cost.recorded": "registrou custo para",
+      "company.created": "criou a empresa",
+      "company.updated": "atualizou a empresa",
+      "company.archived": "arquivou",
+      "company.budget_updated": "atualizou orçamento de"
+    },
+    "changed_status": "alterou status de {{from}} para {{to}} em",
+    "changed_status_to": "alterou status para {{to}} em",
+    "changed_priority": "alterou prioridade de {{from}} para {{to}} em",
+    "changed_priority_to": "alterou prioridade para {{to}} em"
+  },
+  "status": {
+    "pending": "Pendente",
+    "approved": "Aprovado",
+    "rejected": "Rejeitado",
+    "canceled": "Cancelado",
+    "budget_override_required": "Necessário ajuste de orçamento",
+    "revision_requested": "Revisão solicitada",
+    "failed": "Falhou",
+    "timed_out": "Tempo esgotado",
+    "completed": "Concluído",
+    "active": "Ativo",
+    "paused": "Pausado"
   },
   "page": {
     "dashboard": {
-      "title": "Painel",
-      "metrics": {
-        "active_agents": "Agentes Ativos",
-        "success_rate": "Taxa de Sucesso",
-        "avg_resolution_time": "Tempo Médio de Resolução",
-        "open_issues": "Problemas Abertos",
-        "total_cost": "Custo Total",
-        "human_interventions": "Intervenções Humanas"
-      },
-      "charts": {
-        "activity_over_time": "Atividade ao Longo do Tempo",
-        "issue_distribution": "Distribuição de Problemas"
-      }
+      "title": "Painel"
     },
     "inbox": {
       "title": "Caixa de Entrada",
       "inbox_zero": "Caixa de entrada vazia.",
-      "no_new_items": "Nenhum item novo na caixa de entrada.",
+      "no_new_items": "Nenhum novo item na caixa de entrada.",
       "no_recent_items": "Nenhum item recente na caixa de entrada.",
-      "no_match_search": "Nenhum item da caixa de entrada corresponde à sua pesquisa.",
-      "no_match_filters": "Nenhum item da caixa de entrada corresponde a estes filtros.",
-      "search_placeholder": "Pesquisar caixa de entrada...",
+      "no_match_search": "Nenhum item corresponde à sua busca.",
+      "no_match_filters": "Nenhum item corresponde a estes filtros.",
+      "search_placeholder": "Buscar na caixa de entrada...",
       "earlier": "Anterior",
       "tabs": {
-        "mine": "Minhas",
+        "mine": "Meus",
         "recent": "Recentes",
-        "unread": "Não lidas",
-        "all": "Tudo"
+        "unread": "Não lidos",
+        "all": "Todos"
       },
       "categories": {
         "placeholder": "Categoria",
         "everything": "Todas as categorias",
-        "issues_i_touched": "Meus problemas recentes",
+        "issues_i_touched": "Meus chamados recentes",
         "join_requests": "Solicitações de entrada",
         "approvals": "Aprovações",
         "failed_runs": "Execuções falhas",
@@ -153,14 +178,14 @@
       },
       "approval_status": {
         "placeholder": "Status de aprovação",
-        "all": "Todos os status de aprovação",
-        "actionable": "Requer ação",
-        "resolved": "Resolvidos"
+        "all": "Todos os status",
+        "actionable": "Ação necessária",
+        "resolved": "Resolvido"
       },
       "columns": {
         "show_hide": "Mostrar / ocultar colunas",
-        "desktop_rows": "Linhas de problemas no desktop",
-        "choose_visible": "Escolha quais colunas da caixa de entrada permanecem visíveis",
+        "desktop_rows": "Linhas de chamados (Desktop)",
+        "choose_visible": "Escolha quais colunas ficarão visíveis",
         "reset": "Redefinir padrões",
         "default_list": "status, id, atualizado",
         "labels": {
@@ -168,38 +193,41 @@
           "id": "ID",
           "assignee": "Responsável",
           "project": "Projeto",
-          "workspace": "Espaço de trabalho",
-          "labels": "Tags",
+          "workspace": "Espaço de Trabalho",
+          "labels": "Etiquetas",
           "updated": "Última atualização"
         },
         "descriptions": {
-          "status": "Chip de estado do problema na borda esquerda.",
+          "status": "Estado do chamado na borda esquerda.",
           "id": "Identificador do ticket como PAP-1009.",
-          "assignee": "Agente atribuído ou usuário do quadro.",
+          "assignee": "Agente ou usuário responsável.",
           "project": "Pílula do projeto vinculado com sua cor.",
-          "workspace": "Espaço de trabalho de execução ou projeto usado para o problema.",
-          "labels": "Rótulos e tags do problema.",
-          "updated": "Hora da última atividade visível."
+          "workspace": "Espaço de execução utilizado para o chamado.",
+          "labels": "Etiquetas e tags do chamado.",
+          "updated": "Horário da última atividade visível."
         }
       },
       "actions": {
         "mark_all_read": "Marcar tudo como lido",
+        "mark_as_read": "Marcar como lido",
         "marking": "Marcando...",
         "approve": "Aprovar",
         "reject": "Rejeitar",
-        "retry": "Repetir",
-        "dismiss": "Ignorar"
+        "retry": "Tentar novamente",
+        "dismiss": "Descartar"
       },
       "dialogs": {
         "mark_all_read_title": "Marcar tudo como lido?",
-        "mark_all_read_description": "Isso marcará {{count}} {{item_label}} não lido(s) como lido(s).",
+        "mark_all_read_description": "Isso marcará {{count}} {{item_label}} não lidos como lidos.",
         "item_one": "item",
         "item_other": "itens"
       },
       "labels": {
         "failed_run": "Execução falha",
-        "retrying": "Repetindo...",
+        "retrying": "Tentando novamente...",
         "live": "Ao vivo",
+        "human_join_request": "Solicitação de entrada (Humano)",
+        "agent_join_request": "Solicitação de entrada (Agente)",
         "updated": "Atualizado {{time}}",
         "requested_by": "solicitado por {{name}}",
         "requested_time_from_ip": "solicitado {{time}} do IP {{ip}}",
@@ -209,16 +237,16 @@
         "user": "Usuário",
         "alerts_header": "Alertas",
         "agent_errors": {
-          "one": "{{count}} agente tem erros",
-          "other": "{{count}} agentes têm erros"
+          "one": "{{count}} agente com erros",
+          "other": "{{count}} agentes com erros"
         },
-        "budget_utilization": "Orçamento em {{percent}}% de utilização este mês"
+        "budget_utilization": "Orçamento com {{percent}}% de utilização este mês"
       }
     },
     "approvals": {
       "title": "Aprovações",
       "pending_tab": "Pendentes",
-      "all_tab": "Tudo",
+      "all_tab": "Todas",
       "no_pending": "Nenhuma aprovação pendente.",
       "no_approvals": "Nenhuma aprovação ainda.",
       "select_company": "Selecione uma empresa primeiro.",
@@ -229,6 +257,244 @@
       "loading": "Carregando...",
       "error": "Ocorreu um erro",
       "no_data": "Nenhum dado encontrado"
+    },
+    "not_found": {
+      "title_company": "Empresa não encontrada",
+      "title_page": "Página não encontrada",
+      "desc_company": "Nenhuma empresa corresponde ao prefixo \"{{prefix}}\".",
+      "desc_page": "Esta rota não existe.",
+      "requested_path": "Caminho solicitado:",
+      "open_dashboard": "Abrir painel",
+      "go_home": "Ir para início"
+    },
+    "projects": {
+      "title": "Projetos",
+      "add_project": "Adicionar Projeto",
+      "no_projects": "Nenhum projeto ainda.",
+      "select_company": "Selecione uma empresa para ver os projetos."
+    },
+    "issues": {
+      "title": "Chamados",
+      "select_company": "Selecione uma empresa para ver os chamados.",
+      "no_issues": "Nenhum chamado ainda."
+    },
+    "agents": {
+      "title": "Agentes",
+      "new_agent": "Novo Agente",
+      "select_company": "Selecione uma empresa para ver os agentes.",
+      "create_first": "Crie seu primeiro agente para começar.",
+      "no_match_filter": "Nenhum agente corresponde ao filtro selecionado.",
+      "no_org_hierarchy": "Nenhuma hierarquia organizacional definida.",
+      "filters": "Filtros",
+      "show_terminated": "Mostrar terminados",
+      "all": "Todos",
+      "active": "Ativos",
+      "paused": "Pausados",
+      "error": "Erro",
+      "count_one": "{{count}} agente",
+      "count_other": "{{count}} agentes",
+      "live": "Ao vivo"
+    },
+    "org": {
+      "title": "Organização",
+      "select_company": "Selecione uma empresa para visualizar o organograma.",
+      "not_found": "Organograma não encontrado.",
+      "select_agent": "Selecione um agente para ver seus detalhes."
+    },
+    "org_chart": {
+      "title": "Organograma",
+      "import": "Importar",
+      "export": "Exportar",
+      "zoom_in": "Aumentar Zoom",
+      "zoom_out": "Diminuir Zoom",
+      "reset_zoom": "Redefinir Zoom",
+      "empty_state": "Nenhum dado organizacional disponível."
+    },
+    "companies": {
+      "title": "Empresas",
+      "new_company": "Nova Empresa",
+      "no_companies": "Nenhuma empresa encontrada.",
+      "select_to_manage": "Selecione uma empresa para gerenciar suas configurações.",
+      "status": {
+        "active": "Ativa",
+        "archived": "Arquivada"
+      },
+      "agents_one": "{{count}} agente",
+      "agents_other": "{{count}} agentes",
+      "issues_one": "{{count}} chamado",
+      "issues_other": "{{count}} chamados"
+    },
+    "company_settings": {
+      "title": "Configurações da Empresa",
+      "general": "Geral",
+      "company_name": "Nome da empresa",
+      "company_name_hint": "O nome de exibição da sua empresa.",
+      "description": "Descrição",
+      "description_hint": "Descrição opcional exibida no perfil da empresa.",
+      "description_placeholder": "Descrição opcional da empresa",
+      "appearance": "Aparência",
+      "logo": "Logotipo",
+      "logo_hint": "Envie um logotipo em formato PNG, JPEG, WEBP, GIF ou SVG.",
+      "remove_logo": "Remover logotipo",
+      "removing": "Removendo...",
+      "uploading": "Enviando logotipo...",
+      "brand_color": "Cor da marca",
+      "brand_color_hint": "Define o matiz para o ícone da empresa. Deixe vazio para cor gerada automaticamente.",
+      "clear": "Limpar",
+      "saving": "Salvando...",
+      "save_changes": "Salvar alterações",
+      "saved": "Salvo",
+      "hiring": "Contratação",
+      "require_approval": "Exigir aprovação do conselho para novas contratações",
+      "require_approval_hint": "Novas contratações de agentes permanecem pendentes até serem aprovadas pelo conselho.",
+      "feedback_sharing": "Compartilhamento de Feedback",
+      "allow_sharing": "Permitir o compartilhamento de saídas de IA votadas com a Paperclip Labs",
+      "allow_sharing_hint": "Apenas as saídas geradas por IA em que você vota explicitamente são elegíveis para compartilhamento de feedback.",
+      "feedback_terms_info": "Os votos são sempre salvos localmente. Esta configuração controla se os resultados da IA votados também podem ser marcados para compartilhamento com a Paperclip Labs.",
+      "feedback_sharing_enabled": "Compartilhamento de feedback ativado",
+      "feedback_sharing_disabled": "Compartilhamento de feedback desativado",
+      "feedback_sharing_error": "Falha ao atualizar o compartilhamento de feedback",
+      "invites": "Convites",
+      "invite_snippet_hint": "Gere um snippet de convite para agente OpenClaw.",
+      "generate_invite": "Gerar Prompt de Convite OpenClaw",
+      "generating": "Gerando...",
+      "copied": "Copiado",
+      "copy_snippet": "Copiar snippet",
+      "copied_snippet": "Snippet copiado",
+      "packages": "Pacotes",
+      "packages_info": "A importação e exportação foram movidas para páginas dedicadas acessíveis pelo cabeçalho do Organograma.",
+      "danger_zone": "Zona de Perigo",
+      "archive_info": "Arquive esta empresa para ocultá-la da barra lateral. Isso persiste no banco de dados.",
+      "archive_company": "Arquivar empresa",
+      "archive_confirm": "Arquivar a empresa \"{{name}}\"? Ela será ocultada da barra lateral.",
+      "archiving": "Arquivando...",
+      "already_archived": "Já arquivada",
+      "no_company": "Nenhuma empresa selecionada. Selecione uma empresa no alternador acima."
+    },
+    "issueDetail": {
+      "breadcrumbs": {
+        "issues": "Chamados"
+      },
+      "tabs": {
+        "comments": "Comentários",
+        "subissues": "Sub-chamados",
+        "activity": "Atividade"
+      },
+      "toasts": {
+        "copySuccess": {
+          "title": "Copiado para a área de transferência"
+        },
+        "archiveSuccess": {
+          "title": "Chamado arquivado da caixa de entrada"
+        },
+        "archiveError": {
+          "title": "Falha ao arquivar",
+          "body": "Não foi possível arquivar este chamado da caixa de entrada"
+        },
+        "interruptSuccess": {
+          "title": "Execução interrompida",
+          "body": "A execução ativa está sendo parada para que os comentários na fila possam continuar em seguida."
+        },
+        "interruptError": {
+          "title": "Falha na interrupção",
+          "body": "Não foi possível interromper a execução ativa"
+        },
+        "feedbackSuccess": {
+          "savingPrompt": "Feedback salvo. Votos futuros serão compartilhados",
+          "savingLocal": "Feedback salvo. Votos futuros permanecerão locais",
+          "savedAndSharing": "Feedback salvo e compartilhamento ativado",
+          "saved": "Feedback salvo"
+        },
+        "feedbackError": {
+        "commentFailed": "Falha ao comentar",
+        "unableToPost": "Não foi possível postar o comentário",
+        "interruptRequested": "Interrupção solicitada",
+        "stoppingQueued": "A execução ativa está parando para que os comentários na fila possam continuar em seguida.",
+        "interruptFailed": "Falha na interrupção",
+        "unableToInterrupt": "Não foi possível interromper a execução ativa",
+        "feedbackSaved": "Feedback salvo",
+        "feedbackSavedFutureShare": "Feedback salvo. Futuros votos serão compartilhados",
+        "feedbackSavedFutureLocal": "Feedback salvo. Futuros votos permanecerão locais",
+        "feedbackSavedSharingEnabled": "Feedback salvo e compartilhamento ativado",
+        "failedFeedback": "Falha ao salvar feedback",
+        "archivedFromInbox": "Tarefa arquivada da caixa de entrada",
+        "archiveFailed": "Falha ao arquivar",
+        "unableToArchive": "Não foi possível arquivar esta tarefa da caixa de entrada"
+      },
+      "actions": {
+        "labels": {
+          "created": "criou a tarefa",
+          "updated": "atualizou a tarefa",
+          "commented": "comentou",
+          "status_changed": "alterou o status",
+          "assigned": "atribuiu a tarefa",
+          "unassigned": "removeu o responsável",
+          "depth_changed": "alterou a profundidade",
+          "reassigned": "reatribuiu a tarefa",
+          "from": "de",
+          "to": "para"
+        },
+        "actors": {
+          "system": "Sistema",
+          "board": "Quadro"
+        }
+      },
+      "placeholders": {
+        "description": "Adicione uma descrição..."
+      },
+      "status": {
+        "hidden": "Este chamado está oculto",
+        "live": "Ao vivo"
+      },
+      "activity": {
+        "noActivity": "Nenhuma atividade ainda.",
+        "costSummary": "Resumo de Custos",
+        "noCostData": "Nenhum dado de custo ainda.",
+        "tokens": "Tokens"
+      },
+      "approvals": {
+        "linked": "Aprovações Vinculadas ({{count}})"
+      },
+      "properties": {
+        "title": "Propriedades"
+      }
+    },
+    "issueProperties": {
+      "labels": {
+        "status": "Status",
+        "priority": "Prioridade",
+        "labels": "Etiquetas",
+        "assignee": "Responsável",
+        "project": "Projeto",
+        "parent": "Pai",
+        "depth": "Profundidade",
+        "createdBy": "Criado por",
+        "started": "Iniciado",
+        "completed": "Concluído",
+        "created": "Criado",
+        "updated": "Atualizado"
+      },
+      "placeholders": {
+        "searchLabels": "Buscar etiquetas...",
+        "searchAssignees": "Buscar responsáveis...",
+        "searchProjects": "Buscar projetos...",
+        "newLabel": "Nova etiqueta"
+      },
+      "actions": {
+        "assignToMe": "Atribuir a mim",
+        "assignToRequester": "Atribuir ao solicitante",
+        "assignTo": "Atribuir a {{name}}",
+        "noAssignee": "Sem responsável",
+        "noProject": "Sem projeto",
+        "createLabel": "Criar etiqueta",
+        "creating": "Criando...",
+        "showProperties": "Mostrar propriedades",
+        "hideIssue": "Ocultar este Chamado"
+      },
+      "status": {
+        "unassigned": "Não atribuído",
+        "none": "Nenhum"
+      }
     }
   }
 }

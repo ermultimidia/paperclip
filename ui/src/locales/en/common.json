@@ -1,131 +1,157 @@
 {
-  "common": {
-    "sidebar": {
-      "new_issue": "New Issue",
-      "search": "Search",
-      "dashboard": "Dashboard",
-      "goals": "Goals",
-      "approvals": "Approvals",
-      "runs": "Runs",
-      "live_runs": "Live Runs",
-      "heartbeat": "Heartbeat",
-      "settings": "Settings",
-      "teams": "Teams",
-      "members": "Members",
-      "pending": "Join Requests",
-      "projects": "Projects",
-      "inbox": "Inbox",
-      "sections": {
-        "work": "Work",
-        "company": "Company"
-      },
-      "work": {
-        "tasks": "Tasks",
-        "routines": "Routines"
-      },
-      "company_menu": {
-        "org": "Org",
-        "skills": "Skills",
-        "costs": "Costs",
-        "activity": "Activity",
-        "select": "Select company"
-      }
+  "sidebar": {
+    "new_issue": "New Issue",
+    "search": "Search",
+    "dashboard": "Dashboard",
+    "goals": "Goals",
+    "approvals": "Approvals",
+    "runs": "Runs",
+    "live_runs": "Live Runs",
+    "heartbeat": "Heartbeat",
+    "settings": "Settings",
+    "teams": "Teams",
+    "members": "Members",
+    "pending": "Join Requests",
+    "projects": "Projects",
+    "inbox": "Inbox",
+    "sections": {
+      "work": "Work",
+      "company": "Company"
     },
-    "dashboard": {
-      "welcome": "Welcome to Paperclip. Set up your first company and agent to get started.",
-      "get_started": "Get Started",
-      "select_company": "Create or select a company to view the dashboard.",
-      "no_agents": "You have no agents.",
-      "create_one": "Create one here",
-      "active_budget_incidents_one": "{{count}} active budget incident",
-      "active_budget_incidents_other": "{{count}} active budget incidents",
-      "paused": {
-        "agents_one": "{{count}} paused agent",
-        "agents_other": "{{count}} paused agents",
-        "projects_one": "{{count}} paused project",
-        "projects_other": "{{count}} paused projects",
-        "approvals_one": "{{count}} pending budget approval",
-        "approvals_other": "{{count}} pending budget approvals"
-      },
-      "open_budgets": "Open budgets",
-      "active_agents": "Active Agents",
-      "success_rate": "Success Rate",
-      "avg_resolution_time": "Avg. Resolution Time",
-      "open_issues": "Open Issues",
-      "total_cost": "Total Cost",
-      "human_interventions": "Human Interventions",
-      "activity_over_time": "Activity Over Time",
-      "issue_distribution": "Issue Distribution"
+    "work": {
+      "tasks": "Tasks",
+      "routines": "Routines"
     },
-    "activity": {
-      "title": "Activity",
-      "no_activity": "No recent activity.",
-      "view_all": "View all",
-      "actors": {
-        "system": "System",
-        "board": "Board",
-        "unknown": "Unknown"
-      },
-      "verbs": {
-        "issue.created": "created",
-        "issue.updated": "updated",
-        "issue.checked_out": "checked out",
-        "issue.released": "released",
-        "issue.comment_added": "commented on",
-        "issue.attachment_added": "attached file to",
-        "issue.attachment_removed": "removed attachment from",
-        "issue.document_created": "created document for",
-        "issue.document_updated": "updated document on",
-        "issue.document_deleted": "deleted document from",
-        "issue.commented": "commented on",
-        "issue.deleted": "deleted",
-        "agent.created": "created",
-        "agent.updated": "updated",
-        "agent.paused": "paused",
-        "agent.resumed": "resumed",
-        "agent.terminated": "terminated",
-        "agent.key_created": "created API key for",
-        "agent.budget_updated": "updated budget for",
-        "agent.runtime_session_reset": "reset session for",
-        "heartbeat.invoked": "invoked heartbeat for",
-        "heartbeat.cancelled": "cancelled heartbeat for",
-        "approval.created": "requested approval",
-        "approval.approved": "approved",
-        "approval.rejected": "rejected",
-        "project.created": "created",
-        "project.updated": "updated",
-        "project.deleted": "deleted",
-        "goal.created": "created",
-        "goal.updated": "updated",
-        "goal.deleted": "deleted",
-        "cost.reported": "reported cost for",
-        "cost.recorded": "recorded cost for",
-        "company.created": "created company",
-        "company.updated": "updated company",
-        "company.archived": "archived",
-        "company.budget_updated": "updated budget for"
-      },
-      "changed_status": "changed status from {{from}} to {{to}} on",
-      "changed_status_to": "changed status to {{to}} on",
-      "changed_priority": "changed priority from {{from}} to {{to}} on",
-      "changed_priority_to": "changed priority to {{to}} on"
+    "company_menu": {
+      "org": "Org",
+      "skills": "Skills",
+      "costs": "Costs",
+      "activity": "Activity",
+      "select": "Select company"
     }
+  },
+  "dashboard": {
+    "welcome": "Welcome to Paperclip. Set up your first company and agent to get started.",
+    "get_started": "Get Started",
+    "select_company": "Create or select a company to view the dashboard.",
+    "no_agents": "You have no agents.",
+    "create_one": "Create one here",
+    "active_budget_incidents_one": "{{count}} active budget incident",
+    "active_budget_incidents_other": "{{count}} active budget incidents",
+    "paused": {
+      "agents_one": "{{count}} paused agent",
+      "agents_other": "{{count}} paused agents",
+      "projects_one": "{{count}} paused project",
+      "projects_other": "{{count}} paused projects",
+      "approvals_one": "{{count}} pending budget approval",
+      "approvals_other": "{{count}} pending budget approvals",
+      "deleting": "Deleting...",
+      "agents_count_one": "{{count}} agent",
+      "agents_count_other": "{{count}} agents",
+      "issues_count_one": "{{count}} issue",
+      "issues_count_other": "{{count}} issues"
+    },
+    "open_budgets": "Open budgets",
+    "active_agents": "Active Agents",
+    "success_rate": "Success Rate",
+    "avg_resolution_time": "Avg. Resolution Time",
+    "open_issues": "Open Issues",
+    "total_cost": "Total Cost",
+    "human_interventions": "Human Interventions",
+    "activity_over_time": "Activity Over Time",
+    "issue_distribution": "Issue Distribution",
+    "metrics": {
+      "agents_enabled": "Active Agents",
+      "agents_description": "{{running}} running · {{paused}} paused · {{error}} error",
+      "tasks_in_progress": "Tasks in Progress",
+      "tasks_description": "{{open}} open · {{blocked}} blocked",
+      "month_spend": "Month Spend",
+      "month_spend_description": "{{percent}}% of {{budget}} monthly budget used",
+      "unlimited_budget": "Unlimited budget",
+      "pending_approvals": "Pending Approvals",
+      "pending_approvals_description": "No pending budget overrides",
+      "budget_overrides_description": "{{count}} pending budget overrides"
+    },
+    "charts": {
+      "run_activity": "Run Activity",
+      "last_14_days": "Last 14 days",
+      "issues_priority": "Issues by Priority",
+      "issues_status": "Issues by Status",
+      "success_rate": "Success Rate"
+    },
+    "recent_activity": "Recent Activity",
+    "recent_tasks": "Recent Tasks",
+    "no_tasks": "No recent tasks."
+  },
+  "activity": {
+    "title": "Activity",
+    "no_activity": "No recent activity.",
+    "view_all": "View all",
+    "actors": {
+      "system": "System",
+      "board": "Board",
+      "unknown": "Unknown"
+    },
+    "verbs": {
+      "issue.created": "created",
+      "issue.updated": "updated",
+      "issue.checked_out": "checked out",
+      "issue.released": "released",
+      "issue.comment_added": "commented on",
+      "issue.attachment_added": "attached file to",
+      "issue.attachment_removed": "removed attachment from",
+      "issue.document_created": "created document for",
+      "issue.document_updated": "updated document on",
+      "issue.document_deleted": "deleted document from",
+      "issue.commented": "commented on",
+      "issue.deleted": "deleted",
+      "agent.created": "created",
+      "agent.updated": "updated",
+      "agent.paused": "paused",
+      "agent.resumed": "resumed",
+      "agent.terminated": "terminated",
+      "agent.key_created": "created API key for",
+      "agent.budget_updated": "updated budget for",
+      "agent.runtime_session_reset": "reset session for",
+      "heartbeat.invoked": "invoked heartbeat for",
+      "heartbeat.cancelled": "cancelled heartbeat for",
+      "approval.created": "requested approval",
+      "approval.approved": "approved",
+      "approval.rejected": "rejected",
+      "project.created": "created",
+      "project.updated": "updated",
+      "project.deleted": "deleted",
+      "goal.created": "created",
+      "goal.updated": "updated",
+      "goal.deleted": "deleted",
+      "cost.reported": "reported cost for",
+      "cost.recorded": "recorded cost for",
+      "company.created": "created company",
+      "company.updated": "updated company",
+      "company.archived": "archived",
+      "company.budget_updated": "updated budget for"
+    },
+    "changed_status": "changed status from {{from}} to {{to}} on",
+    "changed_status_to": "changed status to {{to}} on",
+    "changed_priority": "changed priority from {{from}} to {{to}} on",
+    "changed_priority_to": "changed priority to {{to}} on"
+  },
+  "status": {
+    "pending": "Pending",
+    "approved": "Approved",
+    "rejected": "Rejected",
+    "canceled": "Canceled",
+    "budget_override_required": "Budget override required",
+    "revision_requested": "Revision requested",
+    "failed": "Failed",
+    "timed_out": "Timed out",
+    "completed": "Completed",
+    "active": "Active",
+    "paused": "Paused"
   },
   "page": {
     "dashboard": {
-      "title": "Dashboard",
-      "metrics": {
-        "active_agents": "Active Agents",
-        "success_rate": "Success Rate",
-        "avg_resolution_time": "Avg. Resolution Time",
-        "open_issues": "Open Issues",
-        "total_cost": "Total Cost",
-        "human_interventions": "Human Interventions"
-      },
-      "charts": {
-        "activity_over_time": "Activity Over Time",
-        "issue_distribution": "Issue Distribution"
-      }
+      "title": "Dashboard"
     },
     "inbox": {
       "title": "Inbox",
@@ -149,7 +175,7 @@
         "join_requests": "Join requests",
         "approvals": "Approvals",
         "failed_runs": "Failed runs",
-        "alerts": "Alertas"
+        "alerts": "Alerts"
       },
       "approval_status": {
         "placeholder": "Approval status",
@@ -184,6 +210,7 @@
       },
       "actions": {
         "mark_all_read": "Mark all as read",
+        "mark_as_read": "Mark as read",
         "marking": "Marking...",
         "approve": "Approve",
         "reject": "Reject",
@@ -200,6 +227,8 @@
         "failed_run": "Failed run",
         "retrying": "Retrying...",
         "live": "Live",
+        "human_join_request": "Human join request",
+        "agent_join_request": "Agent join request",
         "updated": "Updated {{time}}",
         "requested_by": "requested by {{name}}",
         "requested_time_from_ip": "requested {{time}} from IP {{ip}}",
@@ -229,6 +258,232 @@
       "loading": "Loading...",
       "error": "An error occurred",
       "no_data": "No data found"
+    },
+    "not_found": {
+      "title_company": "Company not found",
+      "title_page": "Page not found",
+      "desc_company": "No company matches prefix \"{{prefix}}\".",
+      "desc_page": "This route does not exist.",
+      "requested_path": "Requested path:",
+      "open_dashboard": "Open dashboard",
+      "go_home": "Go home"
+    },
+    "projects": {
+      "title": "Projects",
+      "add_project": "Add Project",
+      "no_projects": "No projects yet.",
+      "select_company": "Select a company to view projects."
+    },
+    "issues": {
+      "title": "Issues",
+      "select_company": "Select a company to view issues.",
+      "no_issues": "No issues yet."
+    },
+    "agents": {
+      "title": "Agents",
+      "new_agent": "New Agent",
+      "select_company": "Select a company to view agents.",
+      "create_first": "Create your first agent to get started.",
+      "no_match_filter": "No agents match the selected filter.",
+      "no_org_hierarchy": "No organizational hierarchy defined.",
+      "filters": "Filters",
+      "show_terminated": "Show terminated",
+      "all": "All",
+      "active": "Active",
+      "paused": "Paused",
+      "error": "Error",
+      "count_one": "{{count}} agent",
+      "count_other": "{{count}} agents",
+      "live": "Live"
+    },
+    "org": {
+      "title": "Org",
+      "select_company": "Select a company to view the organization chart.",
+      "not_found": "Organization chart not found.",
+      "select_agent": "Select an agent to view their details."
+    },
+    "org_chart": {
+      "title": "Org Chart",
+      "import": "Import",
+      "export": "Export",
+      "zoom_in": "Zoom In",
+      "zoom_out": "Zoom Out",
+      "reset_zoom": "Reset Zoom",
+      "empty_state": "No organizational data available."
+    },
+    "companies": {
+      "title": "Companies",
+      "new_company": "New Company",
+      "no_companies": "No companies found.",
+      "select_to_manage": "Select a company to manage its settings.",
+      "status": {
+        "active": "Active",
+        "archived": "Archived"
+      },
+      "agents_one": "{{count}} agent",
+      "agents_other": "{{count}} agents",
+      "issues_one": "{{count}} issue",
+      "issues_other": "{{count}} issues"
+    },
+    "company_settings": {
+      "title": "Company Settings",
+      "general": "General",
+      "company_name": "Company name",
+      "company_name_hint": "The display name for your company.",
+      "description": "Description",
+      "description_hint": "Optional description shown in the company profile.",
+      "description_placeholder": "Optional company description",
+      "appearance": "Appearance",
+      "logo": "Logo",
+      "logo_hint": "Upload a PNG, JPEG, WEBP, GIF, or SVG logo image.",
+      "remove_logo": "Remove logo",
+      "removing": "Removing...",
+      "uploading": "Uploading logo...",
+      "brand_color": "Brand color",
+      "brand_color_hint": "Sets the hue for the company icon. Leave empty for auto-generated color.",
+      "clear": "Clear",
+      "saving": "Saving...",
+      "save_changes": "Save changes",
+      "saved": "Saved",
+      "hiring": "Hiring",
+      "require_approval": "Require board approval for new hires",
+      "require_approval_hint": "New agent hires stay pending until approved by board.",
+      "feedback_sharing": "Feedback Sharing",
+      "allow_sharing": "Allow sharing voted AI outputs with Paperclip Labs",
+      "allow_sharing_hint": "Only AI-generated outputs you explicitly vote on are eligible for feedback sharing.",
+      "feedback_terms_info": "Votes are always saved locally. This setting controls whether voted AI outputs may also be marked for sharing with Paperclip Labs.",
+      "feedback_sharing_enabled": "Feedback sharing enabled",
+      "feedback_sharing_disabled": "Feedback sharing disabled",
+      "feedback_sharing_error": "Failed to update feedback sharing",
+      "invites": "Invites",
+      "invite_snippet_hint": "Generate an OpenClaw agent invite snippet.",
+      "generate_invite": "Generate OpenClaw Invite Prompt",
+      "generating": "Generating...",
+      "copied": "Copied",
+      "copy_snippet": "Copy snippet",
+      "copied_snippet": "Copied snippet",
+      "packages": "Packages",
+      "packages_info": "Import and export have moved to dedicated pages accessible from the Org Chart header.",
+      "danger_zone": "Danger Zone",
+      "archive_info": "Archive this company to hide it from the sidebar. This persists in the database.",
+      "archive_company": "Archive company",
+      "archive_confirm": "Archive company \"{{name}}\"? It will be hidden from the sidebar.",
+      "archiving": "Archiving...",
+      "already_archived": "Already archived",
+      "no_company": "No company selected. Select a company from the switcher above."
+    },
+    "issueDetail": {
+      "breadcrumbs": {
+        "issues": "Issues"
+      },
+      "tabs": {
+        "comments": "Comments",
+        "subissues": "Sub-issues",
+        "activity": "Activity"
+      },
+      "toasts": {
+        "copySuccess": {
+          "title": "Copied to clipboard"
+        },
+        "archiveSuccess": {
+          "title": "Issue archived from inbox"
+        },
+        "archiveError": {
+          "title": "Archive failed",
+          "body": "Unable to archive this issue from the inbox"
+        },
+        "interruptSuccess": {
+          "title": "Run interrupted",
+          "body": "The active run is stopping so queued comments can continue next."
+        },
+        "interruptError": {
+          "title": "Interrupt failed",
+          "body": "Unable to interrupt the active run"
+        },
+        "feedbackSuccess": {
+          "savingPrompt": "Feedback saved. Future votes will share",
+          "savingLocal": "Feedback saved. Future votes will stay local",
+          "savedAndSharing": "Feedback saved and sharing enabled",
+          "saved": "Feedback saved"
+        },
+        "feedbackError": {
+          "title": "Failed to save feedback"
+        }
+      },
+      "actions": {
+        "labels": {
+          "created": "created the issue",
+          "updated": "updated the issue",
+          "commented": "commented",
+          "status_changed": "changed the status",
+          "assigned": "assigned the issue",
+          "unassigned": "removed the assignee",
+          "depth_changed": "changed the depth",
+          "reassigned": "reassigned the issue",
+          "from": "from",
+          "to": "to"
+        },
+        "actors": {
+          "system": "System",
+          "board": "Board"
+        }
+      },
+      "placeholders": {
+        "description": "Add a description..."
+      },
+      "status": {
+        "hidden": "This issue is hidden",
+        "live": "Live"
+      },
+      "activity": {
+        "noActivity": "No activity yet.",
+        "costSummary": "Cost Summary",
+        "noCostData": "No cost data yet.",
+        "tokens": "Tokens"
+      },
+      "approvals": {
+        "linked": "Linked Approvals ({{count}})"
+      },
+      "properties": {
+        "title": "Properties"
+      }
+    },
+    "issueProperties": {
+      "labels": {
+        "status": "Status",
+        "priority": "Priority",
+        "labels": "Labels",
+        "assignee": "Assignee",
+        "project": "Project",
+        "parent": "Parent",
+        "depth": "Depth",
+        "createdBy": "Created by",
+        "started": "Started",
+        "completed": "Completed",
+        "created": "Created",
+        "updated": "Updated"
+      },
+      "placeholders": {
+        "searchLabels": "Search labels...",
+        "searchAssignees": "Search assignees...",
+        "searchProjects": "Search projects...",
+        "newLabel": "New label"
+      },
+      "actions": {
+        "assignToMe": "Assign to me",
+        "assignToRequester": "Assign to requester",
+        "assignTo": "Assign to {{name}}",
+        "noAssignee": "No assignee",
+        "noProject": "No project",
+        "createLabel": "Create label",
+        "creating": "Creating...",
+        "showProperties": "Show properties",
+        "hideIssue": "Hide this Issue"
+      },
+      "status": {
+        "unassigned": "Unassigned",
+        "none": "None"
+      }
     }
   }
 }

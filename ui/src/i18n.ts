@@ -11,15 +11,14 @@ i18n
   .init({
     resources: {
       en: {
-        common: enCommon.common
+        common: enCommon
       },
       pt: {
-        common: ptCommon.common
-      }
+        common: ptCommon
+      },
     },
-    fallbackLng: 'en',
-    ns: ['common'],
-    defaultNS: 'common',
+    fallbackLng: "en",
+    defaultNS: "common",
     interpolation: {
       escapeValue: false, // react already safes from xss
     },
