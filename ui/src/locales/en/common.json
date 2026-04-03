@@ -30,6 +30,205 @@
         "activity": "Activity",
         "select": "Select company"
       }
+    },
+    "dashboard": {
+      "welcome": "Welcome to Paperclip. Set up your first company and agent to get started.",
+      "get_started": "Get Started",
+      "select_company": "Create or select a company to view the dashboard.",
+      "no_agents": "You have no agents.",
+      "create_one": "Create one here",
+      "active_budget_incidents_one": "{{count}} active budget incident",
+      "active_budget_incidents_other": "{{count}} active budget incidents",
+      "paused": {
+        "agents_one": "{{count}} paused agent",
+        "agents_other": "{{count}} paused agents",
+        "projects_one": "{{count}} paused project",
+        "projects_other": "{{count}} paused projects",
+        "approvals_one": "{{count}} pending budget approval",
+        "approvals_other": "{{count}} pending budget approvals"
+      },
+      "open_budgets": "Open budgets",
+      "active_agents": "Active Agents",
+      "success_rate": "Success Rate",
+      "avg_resolution_time": "Avg. Resolution Time",
+      "open_issues": "Open Issues",
+      "total_cost": "Total Cost",
+      "human_interventions": "Human Interventions",
+      "activity_over_time": "Activity Over Time",
+      "issue_distribution": "Issue Distribution"
+    },
+    "activity": {
+      "title": "Activity",
+      "no_activity": "No recent activity.",
+      "view_all": "View all",
+      "actors": {
+        "system": "System",
+        "board": "Board",
+        "unknown": "Unknown"
+      },
+      "verbs": {
+        "issue.created": "created",
+        "issue.updated": "updated",
+        "issue.checked_out": "checked out",
+        "issue.released": "released",
+        "issue.comment_added": "commented on",
+        "issue.attachment_added": "attached file to",
+        "issue.attachment_removed": "removed attachment from",
+        "issue.document_created": "created document for",
+        "issue.document_updated": "updated document on",
+        "issue.document_deleted": "deleted document from",
+        "issue.commented": "commented on",
+        "issue.deleted": "deleted",
+        "agent.created": "created",
+        "agent.updated": "updated",
+        "agent.paused": "paused",
+        "agent.resumed": "resumed",
+        "agent.terminated": "terminated",
+        "agent.key_created": "created API key for",
+        "agent.budget_updated": "updated budget for",
+        "agent.runtime_session_reset": "reset session for",
+        "heartbeat.invoked": "invoked heartbeat for",
+        "heartbeat.cancelled": "cancelled heartbeat for",
+        "approval.created": "requested approval",
+        "approval.approved": "approved",
+        "approval.rejected": "rejected",
+        "project.created": "created",
+        "project.updated": "updated",
+        "project.deleted": "deleted",
+        "goal.created": "created",
+        "goal.updated": "updated",
+        "goal.deleted": "deleted",
+        "cost.reported": "reported cost for",
+        "cost.recorded": "recorded cost for",
+        "company.created": "created company",
+        "company.updated": "updated company",
+        "company.archived": "archived",
+        "company.budget_updated": "updated budget for"
+      },
+      "changed_status": "changed status from {{from}} to {{to}} on",
+      "changed_status_to": "changed status to {{to}} on",
+      "changed_priority": "changed priority from {{from}} to {{to}} on",
+      "changed_priority_to": "changed priority to {{to}} on"
+    }
+  },
+  "page": {
+    "dashboard": {
+      "title": "Dashboard",
+      "metrics": {
+        "active_agents": "Active Agents",
+        "success_rate": "Success Rate",
+        "avg_resolution_time": "Avg. Resolution Time",
+        "open_issues": "Open Issues",
+        "total_cost": "Total Cost",
+        "human_interventions": "Human Interventions"
+      },
+      "charts": {
+        "activity_over_time": "Activity Over Time",
+        "issue_distribution": "Issue Distribution"
+      }
+    },
+    "inbox": {
+      "title": "Inbox",
+      "inbox_zero": "Inbox zero.",
+      "no_new_items": "No new inbox items.",
+      "no_recent_items": "No recent inbox items.",
+      "no_match_search": "No inbox items match your search.",
+      "no_match_filters": "No inbox items match these filters.",
+      "search_placeholder": "Search inbox...",
+      "earlier": "Earlier",
+      "tabs": {
+        "mine": "Mine",
+        "recent": "Recent",
+        "unread": "Unread",
+        "all": "All"
+      },
+      "categories": {
+        "placeholder": "Category",
+        "everything": "All categories",
+        "issues_i_touched": "My recent issues",
+        "join_requests": "Join requests",
+        "approvals": "Approvals",
+        "failed_runs": "Failed runs",
+        "alerts": "Alertas"
+      },
+      "approval_status": {
+        "placeholder": "Approval status",
+        "all": "All approval statuses",
+        "actionable": "Needs action",
+        "resolved": "Resolved"
+      },
+      "columns": {
+        "show_hide": "Show / hide columns",
+        "desktop_rows": "Desktop issue rows",
+        "choose_visible": "Choose which inbox columns stay visible",
+        "reset": "Reset defaults",
+        "default_list": "status, id, updated",
+        "labels": {
+          "status": "Status",
+          "id": "ID",
+          "assignee": "Assignee",
+          "project": "Project",
+          "workspace": "Workspace",
+          "labels": "Tags",
+          "updated": "Last updated"
+        },
+        "descriptions": {
+          "status": "Issue state chip on the left edge.",
+          "id": "Ticket identifier like PAP-1009.",
+          "assignee": "Assigned agent or board user.",
+          "project": "Linked project pill with its color.",
+          "workspace": "Execution or project workspace used for the issue.",
+          "labels": "Issue labels and tags.",
+          "updated": "Latest visible activity time."
+        }
+      },
+      "actions": {
+        "mark_all_read": "Mark all as read",
+        "marking": "Marking...",
+        "approve": "Approve",
+        "reject": "Reject",
+        "retry": "Retry",
+        "dismiss": "Dismiss"
+      },
+      "dialogs": {
+        "mark_all_read_title": "Mark all as read?",
+        "mark_all_read_description": "This will mark {{count}} unread {{item_label}} as read.",
+        "item_one": "item",
+        "item_other": "items"
+      },
+      "labels": {
+        "failed_run": "Failed run",
+        "retrying": "Retrying...",
+        "live": "Live",
+        "updated": "Updated {{time}}",
+        "requested_by": "requested by {{name}}",
+        "requested_time_from_ip": "requested {{time}} from IP {{ip}}",
+        "adapter": "adapter: {{type}}",
+        "unassigned": "Unassigned",
+        "no_project": "No project",
+        "user": "User",
+        "alerts_header": "Alerts",
+        "agent_errors": {
+          "one": "{{count}} agent has errors",
+          "other": "{{count}} agents have errors"
+        },
+        "budget_utilization": "Budget at {{percent}}% utilization this month"
+      }
+    },
+    "approvals": {
+      "title": "Approvals",
+      "pending_tab": "Pending",
+      "all_tab": "All",
+      "no_pending": "No pending approvals.",
+      "no_approvals": "No approvals yet.",
+      "select_company": "Select a company first.",
+      "failed_approve": "Failed to approve",
+      "failed_reject": "Failed to reject"
+    },
+    "common": {
+      "loading": "Loading...",
+      "error": "An error occurred",
+      "no_data": "No data found"
     }
   }
 }

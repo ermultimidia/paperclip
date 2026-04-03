@@ -30,6 +30,205 @@
         "activity": "Atividade",
         "select": "Selecionar empresa"
       }
+    },
+    "dashboard": {
+      "welcome": "Bem-vindo ao Paperclip. Configure sua primeira empresa e agente para começar.",
+      "get_started": "Começar",
+      "select_company": "Crie ou selecione uma empresa para visualizar o painel.",
+      "no_agents": "Você não tem agentes.",
+      "create_one": "Crie um aqui",
+      "active_budget_incidents_one": "{{count}} incidente de orçamento ativo",
+      "active_budget_incidents_other": "{{count}} incidentes de orçamento ativos",
+      "paused": {
+        "agents_one": "{{count}} agente pausado",
+        "agents_other": "{{count}} agentes pausados",
+        "projects_one": "{{count}} projeto pausado",
+        "projects_other": "{{count}} projetos pausados",
+        "approvals_one": "{{count}} aprovação de orçamento pendente",
+        "approvals_other": "{{count}} aprovações de orçamento pendentes"
+      },
+      "open_budgets": "Abrir orçamentos",
+      "active_agents": "Agentes Ativos",
+      "success_rate": "Taxa de Sucesso",
+      "avg_resolution_time": "Tempo Médio de Resolução",
+      "open_issues": "Problemas Abertos",
+      "total_cost": "Custo Total",
+      "human_interventions": "Intervenções Humanas",
+      "activity_over_time": "Atividade ao Longo do Tempo",
+      "issue_distribution": "Distribuição de Problemas"
+    },
+    "activity": {
+      "title": "Atividade",
+      "no_activity": "Nenhuma atividade recente.",
+      "view_all": "Ver tudo",
+      "actors": {
+        "system": "Sistema",
+        "board": "Quadro",
+        "unknown": "Desconhecido"
+      },
+      "verbs": {
+        "issue.created": "criou",
+        "issue.updated": "atualizou",
+        "issue.checked_out": "fez checkout de",
+        "issue.released": "liberou",
+        "issue.comment_added": "comentou em",
+        "issue.attachment_added": "anexou arquivo a",
+        "issue.attachment_removed": "removeu anexo de",
+        "issue.document_created": "criou documento para",
+        "issue.document_updated": "atualizou documento em",
+        "issue.document_deleted": "excluiu documento de",
+        "issue.commented": "comentou em",
+        "issue.deleted": "excluiu",
+        "agent.created": "criou",
+        "agent.updated": "atualizou",
+        "agent.paused": "pausou",
+        "agent.resumed": "retomou",
+        "agent.terminated": "encerrou",
+        "agent.key_created": "criou chave de API para",
+        "agent.budget_updated": "atualizou o orçamento de",
+        "agent.runtime_session_reset": "redefiniu a sessão de",
+        "heartbeat.invoked": "invocou pulsação para",
+        "heartbeat.cancelled": "cancelou pulsação para",
+        "approval.created": "solicitou aprovação",
+        "approval.approved": "aprovou",
+        "approval.rejected": "rejeitou",
+        "project.created": "criou",
+        "project.updated": "atualizou",
+        "project.deleted": "excluiu",
+        "goal.created": "criou",
+        "goal.updated": "atualizou",
+        "goal.deleted": "excluiu",
+        "cost.reported": "relatou custo para",
+        "cost.recorded": "registrou custo para",
+        "company.created": "criou empresa",
+        "company.updated": "atualizou empresa",
+        "company.archived": "arquivou",
+        "company.budget_updated": "atualizou o orçamento de"
+      },
+      "changed_status": "alterou o status de {{from}} para {{to}} em",
+      "changed_status_to": "alterou o status para {{to}} em",
+      "changed_priority": "alterou a prioridade de {{from}} para {{to}} em",
+      "changed_priority_to": "alterou a prioridade para {{to}} em"
+    }
+  },
+  "page": {
+    "dashboard": {
+      "title": "Painel",
+      "metrics": {
+        "active_agents": "Agentes Ativos",
+        "success_rate": "Taxa de Sucesso",
+        "avg_resolution_time": "Tempo Médio de Resolução",
+        "open_issues": "Problemas Abertos",
+        "total_cost": "Custo Total",
+        "human_interventions": "Intervenções Humanas"
+      },
+      "charts": {
+        "activity_over_time": "Atividade ao Longo do Tempo",
+        "issue_distribution": "Distribuição de Problemas"
+      }
+    },
+    "inbox": {
+      "title": "Caixa de Entrada",
+      "inbox_zero": "Caixa de entrada vazia.",
+      "no_new_items": "Nenhum item novo na caixa de entrada.",
+      "no_recent_items": "Nenhum item recente na caixa de entrada.",
+      "no_match_search": "Nenhum item da caixa de entrada corresponde à sua pesquisa.",
+      "no_match_filters": "Nenhum item da caixa de entrada corresponde a estes filtros.",
+      "search_placeholder": "Pesquisar caixa de entrada...",
+      "earlier": "Anterior",
+      "tabs": {
+        "mine": "Minhas",
+        "recent": "Recentes",
+        "unread": "Não lidas",
+        "all": "Tudo"
+      },
+      "categories": {
+        "placeholder": "Categoria",
+        "everything": "Todas as categorias",
+        "issues_i_touched": "Meus problemas recentes",
+        "join_requests": "Solicitações de entrada",
+        "approvals": "Aprovações",
+        "failed_runs": "Execuções falhas",
+        "alerts": "Alertas"
+      },
+      "approval_status": {
+        "placeholder": "Status de aprovação",
+        "all": "Todos os status de aprovação",
+        "actionable": "Requer ação",
+        "resolved": "Resolvidos"
+      },
+      "columns": {
+        "show_hide": "Mostrar / ocultar colunas",
+        "desktop_rows": "Linhas de problemas no desktop",
+        "choose_visible": "Escolha quais colunas da caixa de entrada permanecem visíveis",
+        "reset": "Redefinir padrões",
+        "default_list": "status, id, atualizado",
+        "labels": {
+          "status": "Status",
+          "id": "ID",
+          "assignee": "Responsável",
+          "project": "Projeto",
+          "workspace": "Espaço de trabalho",
+          "labels": "Tags",
+          "updated": "Última atualização"
+        },
+        "descriptions": {
+          "status": "Chip de estado do problema na borda esquerda.",
+          "id": "Identificador do ticket como PAP-1009.",
+          "assignee": "Agente atribuído ou usuário do quadro.",
+          "project": "Pílula do projeto vinculado com sua cor.",
+          "workspace": "Espaço de trabalho de execução ou projeto usado para o problema.",
+          "labels": "Rótulos e tags do problema.",
+          "updated": "Hora da última atividade visível."
+        }
+      },
+      "actions": {
+        "mark_all_read": "Marcar tudo como lido",
+        "marking": "Marcando...",
+        "approve": "Aprovar",
+        "reject": "Rejeitar",
+        "retry": "Repetir",
+        "dismiss": "Ignorar"
+      },
+      "dialogs": {
+        "mark_all_read_title": "Marcar tudo como lido?",
+        "mark_all_read_description": "Isso marcará {{count}} {{item_label}} não lido(s) como lido(s).",
+        "item_one": "item",
+        "item_other": "itens"
+      },
+      "labels": {
+        "failed_run": "Execução falha",
+        "retrying": "Repetindo...",
+        "live": "Ao vivo",
+        "updated": "Atualizado {{time}}",
+        "requested_by": "solicitado por {{name}}",
+        "requested_time_from_ip": "solicitado {{time}} do IP {{ip}}",
+        "adapter": "adaptador: {{type}}",
+        "unassigned": "Não atribuído",
+        "no_project": "Sem projeto",
+        "user": "Usuário",
+        "alerts_header": "Alertas",
+        "agent_errors": {
+          "one": "{{count}} agente tem erros",
+          "other": "{{count}} agentes têm erros"
+        },
+        "budget_utilization": "Orçamento em {{percent}}% de utilização este mês"
+      }
+    },
+    "approvals": {
+      "title": "Aprovações",
+      "pending_tab": "Pendentes",
+      "all_tab": "Tudo",
+      "no_pending": "Nenhuma aprovação pendente.",
+      "no_approvals": "Nenhuma aprovação ainda.",
+      "select_company": "Selecione uma empresa primeiro.",
+      "failed_approve": "Falha ao aprovar",
+      "failed_reject": "Falha ao rejeitar"
+    },
+    "common": {
+      "loading": "Carregando...",
+      "error": "Ocorreu um erro",
+      "no_data": "Nenhum dado encontrado"
     }
   }
 }
