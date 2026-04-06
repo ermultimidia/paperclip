@@ -1097,6 +1097,41 @@
         "billers": "Faturadores",
         "finance": "Financeiro"
       },
+      "budgets_section": {
+        "title": "Painel de controle de orcamento",
+        "description": "Limites de gasto com bloqueio para agentes e projetos. A cota de assinatura dos provedores fica separada e aparece em Provedores.",
+        "metrics": {
+          "active_incidents": {
+            "label": "Incidentes ativos",
+            "subtitle": "Atravessamentos abertos de limite suave ou rigido"
+          },
+          "pending_approvals": {
+            "label": "Aprovacoes pendentes",
+            "subtitle": "Aprovacoes de ajuste de orcamento aguardando acao da diretoria"
+          },
+          "paused_agents": {
+            "label": "Agentes pausados",
+            "subtitle": "Heartbeats de agentes bloqueados por orcamento"
+          },
+          "paused_projects": {
+            "label": "Projetos pausados",
+            "subtitle": "Execucao de projeto bloqueada por orcamento"
+          }
+        },
+        "active_incidents_title": "Incidentes ativos",
+        "active_incidents_description": "Resolva bloqueios aqui aumentando o orcamento ou mantendo o escopo pausado explicitamente.",
+        "scope_title": {
+          "company": "Orcamentos da empresa",
+          "agent": "Orcamentos de agentes",
+          "project": "Orcamentos de projetos"
+        },
+        "scope_description": {
+          "company": "Politica mensal para toda a empresa.",
+          "agent": "Politicas mensais recorrentes de gasto para agentes individuais.",
+          "project": "Politicas de gasto vitalicio para projetos vinculados a execucao."
+        },
+        "empty": "Ainda nao ha politicas de orcamento. Defina orcamentos de agentes e projetos nas paginas de detalhes, ou use o controle mensal existente da empresa."
+      },
       "metrics": {
         "inference_spend": "Gasto de inferencia",
         "inference_spend_subtitle": "{{tokens}} tokens em eventos por requisicao",
@@ -1130,6 +1165,11 @@
         "net_description": "Debito menos credito no periodo selecionado",
         "estimated_description": "Debitos estimados que ainda nao estao consolidados em fatura"
       },
+      "by_agent": {
+        "title": "Por agente",
+        "description": "O que cada agente consumiu no periodo selecionado.",
+        "empty": "Ainda nao ha eventos de custo."
+      },
       "by_project": {
         "title": "Por projeto",
         "description": "Custos de execucao atribuidos a chamados vinculados a projeto.",
@@ -1150,7 +1190,20 @@
         "empty": "Nenhum evento faturavel neste periodo."
       },
       "finance_timeline": {
-        "empty": "Ainda nao ha eventos financeiros. Adicione lancamentos de conta quando faturas ou creditos forem processados."
+        "title": "Eventos financeiros recentes",
+        "description": "Recargas, taxas, creditos, compromissos e outros lancamentos fora de requisicoes.",
+        "empty": "Ainda nao ha eventos financeiros. Adicione lancamentos de conta quando faturas ou creditos forem processados.",
+        "invoice": "fatura {{value}}",
+        "region": "regiao {{value}}",
+        "tier": "plano {{value}}",
+        "estimated": "estimado"
+      },
+      "finance_kind": {
+        "title": "Mix de eventos financeiros",
+        "description": "Lancamentos de conta agrupados por tipo de evento.",
+        "empty": "Nao ha eventos financeiros neste periodo.",
+        "stats": "{{eventCount}} evento(s) · {{billerCount}} faturador(es)",
+        "debits": "{{value}} debitos"
       }
     },
     "companies": {

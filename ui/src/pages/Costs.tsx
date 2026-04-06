@@ -730,12 +730,12 @@ export function Costs() {
               <div className="grid gap-4 xl:grid-cols-[1.25fr,0.95fr]">
                 <Card>
                   <CardHeader className="px-5 pt-5 pb-2">
-                    <CardTitle className="text-base">By agent</CardTitle>
-                    <CardDescription>What each agent consumed in the selected period.</CardDescription>
+                    <CardTitle className="text-base">{t("page.costs.by_agent.title")}</CardTitle>
+                    <CardDescription>{t("page.costs.by_agent.description")}</CardDescription>
                   </CardHeader>
                   <CardContent className="space-y-2 px-5 pb-5 pt-2">
                     {(spendData?.byAgent.length ?? 0) === 0 ? (
-                      <p className="text-sm text-muted-foreground">No cost events yet.</p>
+                      <p className="text-sm text-muted-foreground">{t("page.costs.by_agent.empty")}</p>
                     ) : (
                       spendData?.byAgent.map((row) => {
                         const modelRows = agentModelRows.get(row.agentId) ?? [];
@@ -854,34 +854,34 @@ export function Costs() {
             <>
               <Card className="border-border/70 bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.02))]">
                 <CardHeader className="px-5 pt-5 pb-3">
-                  <CardTitle className="text-base">Budget control plane</CardTitle>
+                  <CardTitle className="text-base">{t("page.costs.budgets_section.title")}</CardTitle>
                   <CardDescription>
-                    Hard-stop spend limits for agents and projects. Provider subscription quota stays separate and appears under Providers.
+                    {t("page.costs.budgets_section.description")}
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="grid gap-3 px-5 pb-5 pt-0 md:grid-cols-4">
                   <MetricTile
-                    label="Active incidents"
+                    label={t("page.costs.budgets_section.metrics.active_incidents.label")}
                     value={String(activeBudgetIncidents.length)}
-                    subtitle="Open soft or hard threshold crossings"
+                    subtitle={t("page.costs.budgets_section.metrics.active_incidents.subtitle")}
                     icon={ReceiptText}
                   />
                   <MetricTile
-                    label="Pending approvals"
+                    label={t("page.costs.budgets_section.metrics.pending_approvals.label")}
                     value={String(budgetData?.pendingApprovalCount ?? 0)}
-                    subtitle="Budget override approvals awaiting board action"
+                    subtitle={t("page.costs.budgets_section.metrics.pending_approvals.subtitle")}
                     icon={ArrowUpRight}
                   />
                   <MetricTile
-                    label="Paused agents"
+                    label={t("page.costs.budgets_section.metrics.paused_agents.label")}
                     value={String(budgetData?.pausedAgentCount ?? 0)}
-                    subtitle="Agent heartbeats blocked by budget"
+                    subtitle={t("page.costs.budgets_section.metrics.paused_agents.subtitle")}
                     icon={Coins}
                   />
                   <MetricTile
-                    label="Paused projects"
+                    label={t("page.costs.budgets_section.metrics.paused_projects.label")}
                     value={String(budgetData?.pausedProjectCount ?? 0)}
-                    subtitle="Project execution blocked by budget"
+                    subtitle={t("page.costs.budgets_section.metrics.paused_projects.subtitle")}
                     icon={DollarSign}
                   />
                 </CardContent>
@@ -890,9 +890,9 @@ export function Costs() {
               {activeBudgetIncidents.length > 0 ? (
                 <div className="space-y-3">
                   <div>
-                    <h2 className="text-lg font-semibold">Active incidents</h2>
+                    <h2 className="text-lg font-semibold">{t("page.costs.budgets_section.active_incidents_title")}</h2>
                     <p className="text-sm text-muted-foreground">
-                      Resolve hard stops here by raising the budget or explicitly keeping the scope paused.
+                      {t("page.costs.budgets_section.active_incidents_description")}
                     </p>
                   </div>
                   <div className="grid gap-4 xl:grid-cols-2">
@@ -921,13 +921,15 @@ export function Costs() {
                   return (
                     <section key={scopeType} className="space-y-3">
                       <div>
-                        <h2 className="text-lg font-semibold capitalize">{scopeType} budgets</h2>
+                        <h2 className="text-lg font-semibold capitalize">
+                          {t(`page.costs.budgets_section.scope_title.${scopeType}`)}
+                        </h2>
                         <p className="text-sm text-muted-foreground">
                           {scopeType === "company"
-                            ? "Company-wide monthly policy."
+                            ? t("page.costs.budgets_section.scope_description.company")
                             : scopeType === "agent"
-                              ? "Recurring monthly spend policies for individual agents."
-                              : "Lifetime spend policies for execution-bound projects."}
+                              ? t("page.costs.budgets_section.scope_description.agent")
+                              : t("page.costs.budgets_section.scope_description.project")}
                         </p>
                       </div>
                       <div className="grid gap-4 xl:grid-cols-2">
@@ -953,7 +955,7 @@ export function Costs() {
                 {budgetPolicies.length === 0 ? (
                   <Card>
                     <CardContent className="px-5 py-8 text-sm text-muted-foreground">
-                      No budget policies yet. Set agent and project budgets from their detail pages, or use the existing company monthly budget control.
+                      {t("page.costs.budgets_section.empty")}
                     </CardContent>
                   </Card>
                 ) : null}
