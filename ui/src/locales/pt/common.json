@@ -196,6 +196,7 @@
     "todo": "A fazer",
     "in_progress": "Em andamento",
     "planned": "Planejado",
+    "achieved": "Alcançado",
     "done": "Concluído",
     "closed": "Fechado"
   },
@@ -714,6 +715,49 @@
         "me": "Eu"
       }
     },
+    "newIssueDialog": {
+      "breadcrumb": "Novo Chamado",
+      "title_placeholder": "Título do chamado",
+      "add_description": "Adicionar descrição...",
+      "for_agent": "Para o agente",
+      "assigned_agent": "Agente designado",
+      "none_selected": "Não selecionado",
+      "search_agents": "Buscar agentes...",
+      "no_agents_found": "Nenhum agente encontrado.",
+      "in_project_joiner": "no",
+      "project": "Projeto",
+      "no_project": "Nenhum projeto",
+      "search_projects": "Buscar projetos...",
+      "no_results": "Sem resultados.",
+      "remove_attachment": "Remover anexo",
+      "labels": "Rótulos",
+      "attach": "Anexar",
+      "start_date": "Data de início",
+      "due_date": "Data de vencimento",
+      "discard_draft": "Descartar rascunho",
+      "creating_issue": "Criando chamado...",
+      "creating": "Criando...",
+      "create_issue": "Criar Chamado",
+      "execution_workspace_modes": {
+        "shared_workspace": "Padrão do projeto",
+        "isolated_workspace": "Novo workspace isolado",
+        "reuse_existing": "Reutilizar workspace existente"
+      },
+      "status": {
+        "backlog": "Backlog",
+        "todo": "A Fazer",
+        "in_progress": "Em Progresso",
+        "in_review": "Em Revisão",
+        "done": "Concluído"
+      },
+      "priority": {
+        "label": "Prioridade",
+        "critical": "Crítica",
+        "high": "Alta",
+        "medium": "Média",
+        "low": "Baixa"
+      }
+    },
     "goals": {
       "title": "Objetivos",
       "select_company": "Selecione uma empresa para ver os objetivos.",
@@ -1084,6 +1128,8 @@
       "select_range": "Selecione data inicial e final para carregar os dados.",
       "presets": {
         "mtd": "Mes atual",
+        "7d": "Ultimos 7 dias",
+        "30d": "Ultimos 30 dias",
         "last7d": "Ultimos 7 dias",
         "last30d": "Ultimos 30 dias",
         "ytd": "Ano atual",

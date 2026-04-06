@@ -775,6 +775,49 @@
         "me": "Me"
       }
     },
+    "newIssueDialog": {
+      "breadcrumb": "New Issue",
+      "title_placeholder": "Issue title",
+      "add_description": "Add description...",
+      "for_agent": "For agent",
+      "assigned_agent": "Assigned agent",
+      "none_selected": "Not selected",
+      "search_agents": "Search agents...",
+      "no_agents_found": "No agents found.",
+      "in_project_joiner": "in",
+      "project": "Project",
+      "no_project": "No project",
+      "search_projects": "Search projects...",
+      "no_results": "No results.",
+      "remove_attachment": "Remove attachment",
+      "labels": "Labels",
+      "attach": "Attach",
+      "start_date": "Start date",
+      "due_date": "Due date",
+      "discard_draft": "Discard draft",
+      "creating_issue": "Creating issue...",
+      "creating": "Creating...",
+      "create_issue": "Create Issue",
+      "execution_workspace_modes": {
+        "shared_workspace": "Project default",
+        "isolated_workspace": "New isolated workspace",
+        "reuse_existing": "Reuse existing workspace"
+      },
+      "status": {
+        "backlog": "Backlog",
+        "todo": "To do",
+        "in_progress": "In progress",
+        "in_review": "In review",
+        "done": "Done"
+      },
+      "priority": {
+        "label": "Priority",
+        "critical": "Critical",
+        "high": "High",
+        "medium": "Medium",
+        "low": "Low"
+      }
+    },
     "goals": {
       "title": "Goals",
       "select_company": "Select a company to view goals.",
@@ -1145,6 +1188,8 @@
       "select_range": "Select a start and end date to load data.",
       "presets": {
         "mtd": "Month to Date",
+        "7d": "Last 7 Days",
+        "30d": "Last 30 Days",
         "last7d": "Last 7 Days",
         "last30d": "Last 30 Days",
         "ytd": "Year to Date",

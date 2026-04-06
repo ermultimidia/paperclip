@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, useCallback, useMemo, type ChangeEvent, type DragEvent } from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+import { useTranslation } from "react-i18next";
 import { pickTextColorForSolidBg } from "@/lib/color-contrast";
 import { useDialog } from "../context/DialogContext";
 import { useCompany } from "../context/CompanyContext";
@@ -56,6 +57,14 @@ import { InlineEntitySelector, type InlineEntityOption } from "./InlineEntitySel
 
 const DRAFT_KEY = "paperclip:issue-draft";
 const DEBOUNCE_MS = 800;
+const AGENT_REQUEST_TEMPLATE_TITLES = new Set([
+  "Create a new agent",
+  "Criar um novo agente",
+]);
+const AGENT_REQUEST_TEMPLATE_DESCRIPTIONS = new Set([
+  "(describe here what kind of agent you need)",
+  "(digite aqui que tipo de agente você deseja)",
+]);
 
 
 interface IssueDraft {
@@ -73,6 +82,11 @@ interface IssueDraft {
   executionWorkspaceMode?: string;
   selectedExecutionWorkspaceId?: string;
   useIsolatedExecutionWorkspace?: boolean;
+}
+
+function isAgentRequestTemplateDraft(draft: IssueDraft): boolean {
+  return AGENT_REQUEST_TEMPLATE_TITLES.has(draft.title.trim())
+    && AGENT_REQUEST_TEMPLATE_DESCRIPTIONS.has(draft.description.trim());
 }
 
 type StagedIssueFile = {
@@ -218,27 +232,6 @@ function formatFileSize(file: File) {
   return `${(file.size / (1024 * 1024)).toFixed(1)} MB`;
 }
 
-const statuses = [
-  { value: "backlog", label: "Backlog", color: issueStatusText.backlog ?? issueStatusTextDefault },
-  { value: "todo", label: "A Fazer", color: issueStatusText.todo ?? issueStatusTextDefault },
-  { value: "in_progress", label: "Em Progresso", color: issueStatusText.in_progress ?? issueStatusTextDefault },
-  { value: "in_review", label: "Em Revisão", color: issueStatusText.in_review ?? issueStatusTextDefault },
-  { value: "done", label: "Concluído", color: issueStatusText.done ?? issueStatusTextDefault },
-];
-
-const priorities = [
-  { value: "critical", label: "Crítica", icon: AlertTriangle, color: priorityColor.critical ?? priorityColorDefault },
-  { value: "high", label: "Alta", icon: ArrowUp, color: priorityColor.high ?? priorityColorDefault },
-  { value: "medium", label: "Média", icon: Minus, color: priorityColor.medium ?? priorityColorDefault },
-  { value: "low", label: "Baixa", icon: ArrowDown, color: priorityColor.low ?? priorityColorDefault },
-];
-
-const EXECUTION_WORKSPACE_MODES = [
-  { value: "shared_workspace", label: "Padrão do projeto" },
-  { value: "isolated_workspace", label: "Novo workspace isolado" },
-  { value: "reuse_existing", label: "Reutilizar workspace existente" },
-] as const;
-
 function defaultProjectWorkspaceIdForProject(project: { workspaces?: Array<{ id: string; isPrimary: boolean }>; executionWorkspacePolicy?: { defaultProjectWorkspaceId?: string | null } | null } | null | undefined) {
   if (!project) return "";
   return project.executionWorkspacePolicy?.defaultProjectWorkspaceId
@@ -270,6 +263,7 @@ function issueExecutionWorkspaceModeForExistingWorkspace(mode: string | null | u
 }
 
 export function NewIssueDialog() {
+  const { t } = useTranslation();
   const { newIssueOpen, newIssueDefaults, closeNewIssue } = useDialog();
   const { companies, selectedCompanyId, selectedCompany } = useCompany();
   const queryClient = useQueryClient();
@@ -306,6 +300,27 @@ export function NewIssueDialog() {
   const stageFileInputRef = useRef<HTMLInputElement | null>(null);
   const assigneeSelectorRef = useRef<HTMLButtonElement | null>(null);
   const projectSelectorRef = useRef<HTMLButtonElement | null>(null);
+
+  const statusOptions = useMemo(() => ([
+    { value: "backlog", label: t("page.newIssueDialog.status.backlog"), color: issueStatusText.backlog ?? issueStatusTextDefault },
+    { value: "todo", label: t("page.newIssueDialog.status.todo"), color: issueStatusText.todo ?? issueStatusTextDefault },
+    { value: "in_progress", label: t("page.newIssueDialog.status.in_progress"), color: issueStatusText.in_progress ?? issueStatusTextDefault },
+    { value: "in_review", label: t("page.newIssueDialog.status.in_review"), color: issueStatusText.in_review ?? issueStatusTextDefault },
+    { value: "done", label: t("page.newIssueDialog.status.done"), color: issueStatusText.done ?? issueStatusTextDefault },
+  ]), [t]);
+
+  const priorityOptions = useMemo(() => ([
+    { value: "critical", label: t("page.newIssueDialog.priority.critical"), icon: AlertTriangle, color: priorityColor.critical ?? priorityColorDefault },
+    { value: "high", label: t("page.newIssueDialog.priority.high"), icon: ArrowUp, color: priorityColor.high ?? priorityColorDefault },
+    { value: "medium", label: t("page.newIssueDialog.priority.medium"), icon: Minus, color: priorityColor.medium ?? priorityColorDefault },
+    { value: "low", label: t("page.newIssueDialog.priority.low"), icon: ArrowDown, color: priorityColor.low ?? priorityColorDefault },
+  ]), [t]);
+
+  const executionWorkspaceModes = useMemo(() => ([
+    { value: "shared_workspace", label: t("page.newIssueDialog.execution_workspace_modes.shared_workspace") },
+    { value: "isolated_workspace", label: t("page.newIssueDialog.execution_workspace_modes.isolated_workspace") },
+    { value: "reuse_existing", label: t("page.newIssueDialog.execution_workspace_modes.reuse_existing") },
+  ]), [t]);
 
   const { data: agents } = useQuery({
     queryKey: queryKeys.agents.list(effectiveCompanyId!),
@@ -525,7 +540,7 @@ export function NewIssueDialog() {
       setExecutionWorkspaceMode(defaultExecutionWorkspaceModeForProject(defaultProject));
       setSelectedExecutionWorkspaceId("");
       executionWorkspaceDefaultProjectId.current = defaultProjectId || null;
-    } else if (draft && draft.title.trim()) {
+    } else if (draft && draft.title.trim() && !isAgentRequestTemplateDraft(draft)) {
       const restoredProjectId = newIssueDefaults.projectId ?? draft.projectId;
       const restoredProject = orderedProjects.find((project) => project.id === restoredProjectId);
       setTitle(draft.title);
@@ -747,8 +762,8 @@ export function NewIssueDialog() {
   }
 
   const hasDraft = title.trim().length > 0 || description.trim().length > 0 || stagedFiles.length > 0;
-  const currentStatus = statuses.find((s) => s.value === status) ?? statuses[1]!;
-  const currentPriority = priorities.find((p) => p.value === priority);
+  const currentStatus = statusOptions.find((s) => s.value === status) ?? statusOptions[1]!;
+  const currentPriority = priorityOptions.find((p) => p.value === priority);
   const currentAssignee = selectedAssigneeAgentId
     ? (agents ?? []).find((a) => a.id === selectedAssigneeAgentId)
     : null;
@@ -954,7 +969,7 @@ export function NewIssueDialog() {
               </PopoverContent>
             </Popover>
             <span className="text-muted-foreground/60">&rsaquo;</span>
-            <span>Novo Chamado</span>
+            <span>{t("page.newIssueDialog.breadcrumb")}</span>
           </div>
           <div className="flex items-center gap-1">
             <Button
@@ -982,7 +997,7 @@ export function NewIssueDialog() {
         <div className="px-4 pt-4 pb-2 shrink-0">
           <textarea
             className="w-full text-lg font-semibold bg-transparent outline-none resize-none overflow-hidden placeholder:text-muted-foreground/50"
-            placeholder="Título do Chamado"
+            placeholder={t("page.newIssueDialog.title_placeholder")}
             rows={1}
             value={title}
             onChange={(e) => {
@@ -1022,16 +1037,16 @@ export function NewIssueDialog() {
         <div className="px-4 pb-2 shrink-0">
           <div className="overflow-x-auto overscroll-x-contain">
             <div className="inline-flex items-center gap-2 text-sm text-muted-foreground flex-wrap sm:flex-nowrap sm:min-w-max">
-              <span>Para o agente</span>
+              <span>{t("page.newIssueDialog.for_agent")}</span>
               <InlineEntitySelector
                 ref={assigneeSelectorRef}
                 value={assigneeValue}
                 options={assigneeOptions}
-                placeholder="Agente designado"
+                placeholder={t("page.newIssueDialog.assigned_agent")}
                 disablePortal
-                noneLabel="Não selecionado"
-                searchPlaceholder="Buscar agentes..."
-                emptyMessage="Nenhum agente encontrado."
+                noneLabel={t("page.newIssueDialog.none_selected")}
+                searchPlaceholder={t("page.newIssueDialog.search_agents")}
+                emptyMessage={t("page.newIssueDialog.no_agents_found")}
                 onChange={(value) => {
                   const nextAssignee = parseAssigneeValue(value);
                   if (nextAssignee.assigneeAgentId) {
@@ -1057,7 +1072,7 @@ export function NewIssueDialog() {
                       <span className="truncate">{option.label}</span>
                     )
                   ) : (
-                    <span className="text-muted-foreground">Agente designado</span>
+                    <span className="text-muted-foreground">{t("page.newIssueDialog.assigned_agent")}</span>
                   )
                 }
                 renderOption={(option) => {
@@ -1073,16 +1088,16 @@ export function NewIssueDialog() {
                   );
                 }}
               />
-              <span>no</span>
+              <span>{t("page.newIssueDialog.in_project_joiner")}</span>
               <InlineEntitySelector
                 ref={projectSelectorRef}
                 value={projectId}
                 options={projectOptions}
-                placeholder="Projeto"
+                placeholder={t("page.newIssueDialog.project")}
                 disablePortal
-                noneLabel="Nenhum projeto"
-                searchPlaceholder="Buscar projetos..."
-                emptyMessage="Sem resultados."
+                noneLabel={t("page.newIssueDialog.no_project")}
+                searchPlaceholder={t("page.newIssueDialog.search_projects")}
+                emptyMessage={t("page.newIssueDialog.no_results")}
                 onChange={handleProjectChange}
                 onConfirm={() => {
                   descriptionEditorRef.current?.focus();
@@ -1097,7 +1112,7 @@ export function NewIssueDialog() {
                       <span className="truncate">{option.label}</span>
                     </>
                   ) : (
-                    <span className="text-muted-foreground">Projeto</span>
+                    <span className="text-muted-foreground">{t("page.newIssueDialog.project")}</span>
                   )
                 }
                 renderOption={(option) => {
@@ -1135,7 +1150,7 @@ export function NewIssueDialog() {
                   }
                 }}
               >
-                {EXECUTION_WORKSPACE_MODES.map((option) => (
+                              {executionWorkspaceModes.map((option) => (
                   <option key={option.value} value={option.value}>
                     {option.label}
                   </option>
@@ -1248,7 +1263,7 @@ export function NewIssueDialog() {
               ref={descriptionEditorRef}
               value={description}
               onChange={setDescription}
-              placeholder="Adicionar descrição..."
+            placeholder={t("page.newIssueDialog.add_description")}
               bordered={false}
               mentions={mentionOptions}
               contentClassName={cn("text-sm text-muted-foreground pb-12", expanded ? "min-h-[220px]" : "min-h-[120px]")}
@@ -1317,7 +1332,7 @@ export function NewIssueDialog() {
                           className="shrink-0 text-muted-foreground"
                           onClick={() => removeStagedFile(file.id)}
                           disabled={createIssue.isPending}
-                          title="Remove attachment"
+                          title={t("page.newIssueDialog.remove_attachment")}
                         >
                           <X className="h-3.5 w-3.5" />
                         </Button>
@@ -1341,7 +1356,7 @@ export function NewIssueDialog() {
               </button>
             </PopoverTrigger>
             <PopoverContent className="w-36 p-1" align="start">
-              {statuses.map((s) => (
+              {statusOptions.map((s) => (
                 <button
                   key={s.value}
                   className={cn(
@@ -1369,13 +1384,13 @@ export function NewIssueDialog() {
                 ) : (
                   <>
                     <Minus className="h-3 w-3 text-muted-foreground" />
-                    Prioridade
+                    {t("page.newIssueDialog.priority.label")}
                   </>
                 )}
               </button>
             </PopoverTrigger>
             <PopoverContent className="w-36 p-1" align="start">
-              {priorities.map((p) => (
+              {priorityOptions.map((p) => (
                 <button
                   key={p.value}
                   className={cn(
@@ -1394,7 +1409,7 @@ export function NewIssueDialog() {
           {/* Labels chip (placeholder) */}
           <button className="inline-flex items-center gap-1.5 rounded-md border border-border px-2 py-1 text-xs hover:bg-accent/50 transition-colors text-muted-foreground">
             <Tag className="h-3 w-3" />
-            Rótulos
+            {t("page.newIssueDialog.labels")}
           </button>
 
           <input
@@ -1411,7 +1426,7 @@ export function NewIssueDialog() {
             disabled={createIssue.isPending}
           >
             <Paperclip className="h-3 w-3" />
-            Anexar
+            {t("page.newIssueDialog.attach")}
           </button>
 
           {/* More (dates) */}
@@ -1424,11 +1439,11 @@ export function NewIssueDialog() {
             <PopoverContent className="w-44 p-1" align="start">
               <button className="flex items-center gap-2 w-full px-2 py-1.5 text-xs rounded hover:bg-accent/50 text-muted-foreground">
                 <Calendar className="h-3 w-3" />
-                Start date
+                {t("page.newIssueDialog.start_date")}
               </button>
               <button className="flex items-center gap-2 w-full px-2 py-1.5 text-xs rounded hover:bg-accent/50 text-muted-foreground">
                 <Calendar className="h-3 w-3" />
-                Due date
+                {t("page.newIssueDialog.due_date")}
               </button>
             </PopoverContent>
           </Popover>
@@ -1443,14 +1458,14 @@ export function NewIssueDialog() {
             onClick={discardDraft}
             disabled={createIssue.isPending || !canDiscardDraft}
           >
-            Descartar Rascunho
+            {t("page.newIssueDialog.discard_draft")}
           </Button>
           <div className="flex items-center gap-3">
             <div className="min-h-5 text-right">
               {createIssue.isPending ? (
                 <span className="inline-flex items-center gap-1.5 text-xs font-medium text-muted-foreground">
                   <Loader2 className="h-3 w-3 animate-spin" />
-                  Creating issue...
+                  {t("page.newIssueDialog.creating_issue")}
                 </span>
               ) : createIssue.isError ? (
                 <span className="text-xs text-destructive">{createIssueErrorMessage}</span>
@@ -1465,7 +1480,7 @@ export function NewIssueDialog() {
             >
               <span className="inline-flex items-center justify-center gap-1.5">
                 {createIssue.isPending ? <Loader2 className="h-3.5 w-3.5 animate-spin" /> : null}
-                <span>{createIssue.isPending ? "Criando..." : "Criar Chamado"}</span>
+                <span>{createIssue.isPending ? t("page.newIssueDialog.creating") : t("page.newIssueDialog.create_issue")}</span>
               </span>
             </Button>
           </div>
