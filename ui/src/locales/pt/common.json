@@ -1277,6 +1277,8 @@
       "appearance": "Aparência",
       "logo": "Logotipo",
       "logo_hint": "Envie um logotipo em formato PNG, JPEG, WEBP, GIF ou SVG.",
+      "choose_file": "Escolher arquivo",
+      "no_file_selected": "Nenhum arquivo selecionado",
       "remove_logo": "Remover logotipo",
       "removing": "Removendo...",
       "uploading": "Enviando logotipo...",

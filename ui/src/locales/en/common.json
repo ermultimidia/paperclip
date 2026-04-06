@@ -1337,6 +1337,8 @@
       "appearance": "Appearance",
       "logo": "Logo",
       "logo_hint": "Upload a PNG, JPEG, WEBP, GIF, or SVG logo image.",
+      "choose_file": "Choose file",
+      "no_file_selected": "No file selected",
       "remove_logo": "Remove logo",
       "removing": "Removing...",
       "uploading": "Uploading logo...",

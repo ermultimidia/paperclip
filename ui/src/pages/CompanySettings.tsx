@@ -1,4 +1,4 @@
-import { ChangeEvent, useEffect, useState } from "react";
+import { ChangeEvent, useEffect, useRef, useState } from "react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { DEFAULT_FEEDBACK_DATA_SHARING_TERMS_VERSION } from "@paperclipai/shared";
 import { useCompany } from "../context/CompanyContext";
@@ -43,6 +43,8 @@ export function CompanySettings() {
   const [brandColor, setBrandColor] = useState("");
   const [logoUrl, setLogoUrl] = useState("");
   const [logoUploadError, setLogoUploadError] = useState<string | null>(null);
+  const [logoSelectedFileName, setLogoSelectedFileName] = useState("");
+  const logoFileInputRef = useRef<HTMLInputElement | null>(null);
 
   // Sync local state from selected company
   useEffect(() => {
@@ -51,6 +53,7 @@ export function CompanySettings() {
     setDescription(selectedCompany.description ?? "");
     setBrandColor(selectedCompany.brandColor ?? "");
     setLogoUrl(selectedCompany.logoUrl ?? "");
+    setLogoSelectedFileName("");
   }, [selectedCompany]);
 
   const [inviteError, setInviteError] = useState<string | null>(null);
@@ -185,6 +188,7 @@ export function CompanySettings() {
 
   function handleLogoFileChange(event: ChangeEvent<HTMLInputElement>) {
     const file = event.target.files?.[0] ?? null;
+    setLogoSelectedFileName(file?.name ?? "");
     event.currentTarget.value = "";
     if (!file) return;
     setLogoUploadError(null);
@@ -304,11 +308,26 @@ export function CompanySettings() {
               >
                 <div className="space-y-2">
                   <input
+                    ref={logoFileInputRef}
                     type="file"
                     accept="image/png,image/jpeg,image/webp,image/gif,image/svg+xml"
                     onChange={handleLogoFileChange}
-                    className="w-full rounded-md border border-border bg-transparent px-2.5 py-1.5 text-sm outline-none file:mr-4 file:rounded-md file:border-0 file:bg-muted file:px-2.5 file:py-1 file:text-xs"
+                    className="sr-only"
                   />
+                  <div className="flex items-center gap-2 rounded-md border border-border bg-transparent px-2.5 py-1.5 text-sm">
+                    <Button
+                      type="button"
+                      size="sm"
+                      variant="secondary"
+                      onClick={() => logoFileInputRef.current?.click()}
+                      disabled={logoUploadMutation.isPending}
+                    >
+                      {t("page.company_settings.choose_file")}
+                    </Button>
+                    <span className="truncate text-muted-foreground">
+                      {logoSelectedFileName || t("page.company_settings.no_file_selected")}
+                    </span>
+                  </div>
                   {logoUrl && (
                     <div className="flex items-center gap-2">
                       <Button
