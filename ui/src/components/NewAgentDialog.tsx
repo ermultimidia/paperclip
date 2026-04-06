@@ -110,8 +110,8 @@ export function NewAgentDialog() {
     closeNewAgent();
     openNewIssue({
       assigneeAgentId: ceoAgent?.id,
-      title: "Create a new agent",
-      description: "(type in what kind of agent you want here)",
+      title: "Criar um novo agente",
+      description: "(digite aqui que tipo de agente você deseja)",
     });
   }
 
