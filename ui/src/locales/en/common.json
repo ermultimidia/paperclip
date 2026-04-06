@@ -101,6 +101,20 @@
       "waiting_transcript": "Waiting for transcript parsing...",
       "waiting_output": "Waiting for output...",
       "no_transcript": "No transcript captured."
+    },
+    "components": {
+      "liveRunWidget": {
+        "title": "Live Runs",
+        "description": "Streamed with the same transcript UI used on the full run detail page.",
+        "stop": "Stop",
+        "stopping": "Stopping...",
+        "open_run": "Open run",
+        "waiting_parsing": "Waiting for transcript parsing...",
+        "waiting_output": "Waiting for run output..."
+      },
+      "worktreeBanner": {
+        "worktree": "Worktree"
+      }
     }
   },
   "transcript": {
@@ -242,7 +256,8 @@
         "create_agent": "Create new agent",
         "create_project": "Create new project"
       }
-    }
+    },
+    "error": "An error occurred"
   },
   "actions": {
     "assign_task": "Assign Task",
@@ -250,7 +265,8 @@
     "pause": "Pause",
     "resume": "Resume",
     "retry": "Retry",
-    "retrying": "Retrying..."
+    "retrying": "Retrying...",
+    "run_now": "Run now"
   },
   "page": {
     "dashboard": {
@@ -489,7 +505,20 @@
       "error": "Error",
       "count_one": "{{count}} agent",
       "count_other": "{{count}} agents",
-      "live": "Live"
+      "live": "Live",
+      "new_agent_dialog": {
+        "title": "Add a new agent",
+        "recommendation": "We recommend letting your CEO handle agent setup. They know the org structure and can configure reporting, permissions, and adapters.",
+        "ask_ceo": "Ask the CEO to create a new agent",
+        "advanced_link": "I want advanced configuration myself",
+        "back": "Back",
+        "choose_adapter": "Choose your adapter type for advanced setup.",
+        "recommended": "Recommended",
+        "issue": {
+          "title": "Create a new agent",
+          "description": "(describe here what kind of agent you need)"
+        }
+      }
     },
     "routines": {
       "title": "Routines",
@@ -936,6 +965,83 @@
         "search_assignees": "Search assignees...",
         "no_assignees_found": "No assignees found"
       }
+    },
+    "components": {
+      "routineVariablesEditor": {
+        "title": "Variables",
+        "detected_hint": "Detected from {{name}} placeholders in the routine instructions.",
+        "manual_run_hint": "Prompt the user for this value before each manual run.",
+        "placeholder_name": "Variable name",
+        "type": "Type",
+        "default_value": "Default value",
+        "required": "Required",
+        "no_default": "No default",
+        "true": "True",
+        "false": "False",
+        "options": "Options",
+        "default_option": "Default option",
+        "instructions_hint": "Use {{variable_name}} placeholders in the instructions to prompt for inputs when the routine runs.",
+        "types": {
+          "text": "Text",
+          "textarea": "Long text",
+          "number": "Number",
+          "boolean": "Boolean",
+          "select": "Dropdown"
+        }
+      },
+      "routineRunVariablesDialog": {
+        "title": "Run routine",
+        "description": "Fill in the routine variables before starting the execution issue.",
+        "no_value": "No value",
+        "choose_value": "Choose a value",
+        "missing_required": "Missing: {{fields}}",
+        "choose_workspace": "Choose an existing workspace before running."
+      },
+      "scheduleEditor": {
+        "title": "Schedule",
+        "choose_frequency": "Choose frequency...",
+        "custom_cron": "Custom cron expression",
+        "cron_hint": "Five fields: minute hour day-of-month month day-of-week",
+        "at": "at",
+        "at_minute": "at minute",
+        "on": "on",
+        "on_day": "on day",
+        "no_schedule": "No schedule set",
+        "every": "Every",
+        "monthly_on_the": "Monthly on the {{day}}{{suffix}} at {{time}}",
+        "presets": {
+          "every_minute": "Every minute",
+          "every_hour": "Every hour",
+          "every_day": "Every day",
+          "weekdays": "Weekdays",
+          "weekly": "Weekly",
+          "monthly": "Monthly",
+          "custom": "Custom (cron)"
+        },
+        "days": {
+          "mon": "Mon",
+          "tue": "Tue",
+          "wed": "Wed",
+          "thu": "Thu",
+          "fri": "Fri",
+          "sat": "Sat",
+          "sun": "Sun"
+        },
+        "am": "AM",
+        "pm": "PM"
+      },
+      "liveRunWidget": {
+        "title": "Live Runs",
+        "description": "Streamed with the same transcript UI used on the full run detail page.",
+        "stop": "Stop",
+        "stopping": "Stopping...",
+        "open_run": "Open run",
+        "waiting_parsing": "Waiting for transcript parsing...",
+        "waiting_output": "Waiting for run output..."
+      },
+      "worktreeBanner": {
+        "worktree": "Worktree"
+      }
     }
   },
   "components": {
@@ -974,6 +1080,16 @@
         "task": "Task",
         "launch": "Launch"
       }
+    }
+  },
+  "onboarding": {
+    "title": "Onboarding",
+    "subtitle": "Configure your company environment",
+    "steps": {
+      "company": "Company",
+      "agent": "Agent",
+      "task": "Task",
+      "launch": "Launch"
     }
   }
 }

@@ -101,6 +101,20 @@
       "waiting_transcript": "Aguardando análise do transcript...",
       "waiting_output": "Aguardando saída...",
       "no_transcript": "Nenhum transcript capturado."
+    },
+    "components": {
+      "liveRunWidget": {
+        "title": "Execuções ao Vivo",
+        "description": "Transmitido com a mesma interface de transcrição usada na página de detalhes da execução.",
+        "stop": "Parar",
+        "stopping": "Parando...",
+        "open_run": "Abrir execução",
+        "waiting_parsing": "Aguardando análise da transcrição...",
+        "waiting_output": "Aguardando saída da execução..."
+      },
+      "worktreeBanner": {
+        "worktree": "Árvore de Trabalho"
+      }
     }
   },
   "transcript": {
@@ -190,7 +204,8 @@
     "pause": "Pausar",
     "resume": "Retomar",
     "retry": "Tentar novamente",
-    "retrying": "Tentando..."
+    "retrying": "Tentando...",
+    "run_now": "Executar agora"
   },
   "page": {
     "dashboard": {
@@ -317,14 +332,6 @@
             "number": "Número",
             "boolean": "Booleano",
             "select": "Seleção"
-          },
-          "routineRunVariablesDialog": {
-            "title": "Executar rotina",
-            "description": "Preencha as variáveis da rotina antes de iniciar a tarefa de execução.",
-            "no_value": "Sem valor",
-            "choose_value": "Escolha um valor",
-            "missing_required": "Faltando: {{fields}}",
-            "choose_workspace": "Escolha uma workspace existente antes de executar."
           }
         },
         "scheduleEditor": {
@@ -371,6 +378,14 @@
         },
         "worktreeBanner": {
           "worktree": "Árvore de Trabalho"
+        },
+        "routineRunVariablesDialog": {
+          "title": "Executar rotina",
+          "description": "Preencha as variáveis da rotina antes de iniciar a tarefa de execução.",
+          "no_value": "Sem valor",
+          "choose_value": "Escolha um valor",
+          "missing_required": "Faltando: {{fields}}",
+          "choose_workspace": "Escolha uma workspace existente antes de executar."
         }
       },
       "agent_errors": {
@@ -427,8 +442,22 @@
       "active": "Ativos",
       "paused": "Pausados",
       "error": "Erro",
+      "count_one": "{{count}} agente",
       "count_other": "{{count}} agentes",
-      "live": "Ao vivo"
+      "live": "Ao vivo",
+      "new_agent_dialog": {
+        "title": "Adicionar novo agente",
+        "recommendation": "Recomendamos deixar seu CEO cuidar da configuração do agente. Ele conhece a estrutura da organização e pode configurar reporte, permissões e adaptadores.",
+        "ask_ceo": "Pedir ao CEO para criar um novo agente",
+        "advanced_link": "Quero fazer a configuração avançada",
+        "back": "Voltar",
+        "choose_adapter": "Escolha o tipo de adaptador para a configuração avançada.",
+        "recommended": "Recomendado",
+        "issue": {
+          "title": "Criar um novo agente",
+          "description": "(digite aqui que tipo de agente você deseja)"
+        }
+      }
     },
     "routines": {
       "title": "Rotinas",
@@ -482,7 +511,7 @@
       },
       "catch_up_descriptions": {
         "skip": "Ignore janelas que foram perdidas enquanto o agendador ou a rotina estavam pausados.",
-"capped": "Recupere janelas de agendamento perdidas em lotes limitados após a recuperação."
+        "capped": "Recupere janelas de agendamento perdidas em lotes limitados após a recuperação."
       }
     },
     "routineDetail": {
@@ -830,71 +859,6 @@
           "copyFailed": "Não foi possível copiar o documento",
           "saveBeforeViewHistory": "Salve ou cancele suas alterações locais antes de visualizar uma revisão antiga."
         }
-      },
-      "common": {
-        "save": "Salvar",
-        "cancel": "Cancelar",
-        "edit": "Editar",
-        "delete": "Excluir",
-        "archive": "Arquivar",
-        "restore": "Restaurar",
-        "pause": "Pausar",
-        "enable": "Ativar",
-        "running": "Executando...",
-        "adding": "Adicionando...",
-        "on": "Ligado",
-        "off": "Desligado",
-        "coming_soon": "EM BREVE",
-        "labels": {
-          "label": "Rótulo",
-          "schedule": "Agendamento",
-          "last": "Último",
-          "url": "URL",
-          "secret": "Segredo"
-        },
-        "trigger_kinds": {
-          "schedule": "Agendamento",
-          "webhook": "Webhook",
-          "api": "API"
-        },
-        "accessibility": {
-          "skip_to_main": "Pular para o conteúdo principal",
-          "open_sidebar": "Abrir barra lateral",
-          "close_sidebar": "Fechar barra lateral",
-          "switch_theme": "Alternar para modo {{theme}}"
-        },
-        "navigation": {
-          "documentation": "Documentação",
-          "instance_settings": "Configurações da instância"
-        },
-        "command_palette": {
-          "placeholder": "Buscar tarefas, agentes, projetos...",
-          "no_results": "Nenhum resultado encontrado.",
-          "groups": {
-            "actions": "Ações",
-            "pages": "Páginas",
-            "issues": "Tarefas",
-            "agents": "Agentes",
-            "projects": "Projetos"
-          },
-          "actions": {
-            "create_issue": "Criar nova tarefa",
-            "create_agent": "Criar novo agente",
-            "create_project": "Criar novo projeto"
-          }
-        },
-        "policies": {
-          "coalesce_if_active": "Agrupar se ativo",
-          "always_enqueue": "Sempre enfileirar",
-          "skip_if_active": "Pular se ativo",
-          "skip_missed": "Pular perdidos",
-          "enqueue_missed_with_cap": "Enfileirar perdidos com limite"
-        },
-        "placeholders": {
-          "searchLabels": "Buscar etiquetas...",
-          "searchAssignees": "Buscar responsáveis...",
-          "searchProjects": "Buscar projetos..."
-        }
       }
     },
     "issueProperties": {
@@ -940,6 +904,83 @@
         "search_assignees": "Buscar responsáveis...",
         "no_assignees_found": "Nenhum responsável encontrado"
       }
+    },
+    "components": {
+      "routineVariablesEditor": {
+        "title": "Variáveis",
+        "detected_hint": "Detectado pelos espaços reservados {{name}} nas instruções da rotina.",
+        "manual_run_hint": "Solicitar este valor ao usuário antes de cada execução manual.",
+        "placeholder_name": "Nome da variável",
+        "type": "Tipo",
+        "default_value": "Valor padrão",
+        "required": "Obrigatório",
+        "no_default": "Sem padrão",
+        "true": "Verdadeiro",
+        "false": "Falso",
+        "options": "Opções",
+        "default_option": "Opção padrão",
+        "instructions_hint": "Use os espaços reservados {{variable_name}} nas instruções para solicitar entradas quando a rotina for executada.",
+        "types": {
+          "text": "Texto",
+          "textarea": "Texto longo",
+          "number": "Número",
+          "boolean": "Booleano",
+          "select": "Seleção"
+        }
+      },
+      "routineRunVariablesDialog": {
+        "title": "Executar rotina",
+        "description": "Preencha as variáveis da rotina antes de iniciar a tarefa de execução.",
+        "no_value": "Sem valor",
+        "choose_value": "Escolha um valor",
+        "missing_required": "Faltando: {{fields}}",
+        "choose_workspace": "Escolha uma workspace existente antes de executar."
+      },
+      "scheduleEditor": {
+        "title": "Agendamento",
+        "choose_frequency": "Escolha a frequência...",
+        "custom_cron": "Expressão cron personalizada",
+        "cron_hint": "Cinco campos: minuto hora dia-do-mês mês dia-da-semana",
+        "at": "as",
+        "at_minute": "no minuto",
+        "on": "na",
+        "on_day": "no dia",
+        "no_schedule": "Nenhuma escala definida",
+        "every": "Toda(o)",
+        "monthly_on_the": "Mensalmente no dia {{day}} às {{time}}",
+        "presets": {
+          "every_minute": "Todo minuto",
+          "every_hour": "Toda hora",
+          "every_day": "Todo dia",
+          "weekdays": "Dias de semana",
+          "weekly": "Semanalmente",
+          "monthly": "Mensalmente",
+          "custom": "Personalizado (cron)"
+        },
+        "days": {
+          "mon": "Seg",
+          "tue": "Ter",
+          "wed": "Qua",
+          "thu": "Qui",
+          "fri": "Sex",
+          "sat": "Sáb",
+          "sun": "Dom"
+        },
+        "am": "AM",
+        "pm": "PM"
+      },
+      "liveRunWidget": {
+        "title": "Execuções ao Vivo",
+        "description": "Transmitido com a mesma interface de transcrição usada na página de detalhes da execução.",
+        "stop": "Parar",
+        "stopping": "Parando...",
+        "open_run": "Abrir execução",
+        "waiting_parsing": "Aguardando análise da transcrição...",
+        "waiting_output": "Aguardando saída da execução..."
+      },
+      "worktreeBanner": {
+        "worktree": "Árvore de Trabalho"
+      }
     }
   },
   "components": {
@@ -978,6 +1019,82 @@
         "task": "Tarefa",
         "launch": "Lançamento"
       }
+    }
+  },
+  "common": {
+    "save": "Salvar",
+    "cancel": "Cancelar",
+    "edit": "Editar",
+    "delete": "Excluir",
+    "archive": "Arquivar",
+    "restore": "Restaurar",
+    "pause": "Pausar",
+    "enable": "Ativar",
+    "running": "Executando...",
+    "adding": "Adicionando...",
+    "on": "Ligado",
+    "off": "Desligado",
+    "coming_soon": "EM BREVE",
+    "labels": {
+      "label": "Rótulo",
+      "schedule": "Agendamento",
+      "last": "Último",
+      "url": "URL",
+      "secret": "Segredo"
+    },
+    "trigger_kinds": {
+      "schedule": "Agendamento",
+      "webhook": "Webhook",
+      "api": "API"
+    },
+    "accessibility": {
+      "skip_to_main": "Pular para o conteúdo principal",
+      "open_sidebar": "Abrir barra lateral",
+      "close_sidebar": "Fechar barra lateral",
+      "switch_theme": "Alternar para modo {{theme}}"
+    },
+    "navigation": {
+      "documentation": "Documentação",
+      "instance_settings": "Configurações da instância"
+    },
+    "command_palette": {
+      "placeholder": "Buscar tarefas, agentes, projetos...",
+      "no_results": "Nenhum resultado encontrado.",
+      "groups": {
+        "actions": "Ações",
+        "pages": "Páginas",
+        "issues": "Tarefas",
+        "agents": "Agentes",
+        "projects": "Projetos"
+      },
+      "actions": {
+        "create_issue": "Criar nova tarefa",
+        "create_agent": "Criar novo agente",
+        "create_project": "Criar novo projeto"
+      }
+    },
+    "policies": {
+      "coalesce_if_active": "Agrupar se ativo",
+      "always_enqueue": "Sempre enfileirar",
+      "skip_if_active": "Pular se ativo",
+      "skip_missed": "Pular perdidos",
+      "enqueue_missed_with_cap": "Enfileirar perdidos com limite"
+    },
+    "placeholders": {
+      "searchLabels": "Buscar etiquetas...",
+      "searchAssignees": "Buscar responsáveis...",
+      "searchProjects": "Buscar projetos..."
+    },
+    "error": "Ocorreu um erro"
+  },
+  "onboarding": {
+    "title": "Boas-vindas",
+    "subtitle": "Configure o ambiente da sua empresa",
+    "steps": {
+      "company": "Empresa",
+      "agent": "Agente",
+      "task": "Tarefa",
+      "launch": "Lançamento"
     }
   }
 }

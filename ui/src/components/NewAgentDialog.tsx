@@ -1,6 +1,7 @@
 import { useState, type ComponentType } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { useNavigate } from "@/lib/router";
+import { useTranslation } from "react-i18next";
 import { useDialog } from "../context/DialogContext";
 import { useCompany } from "../context/CompanyContext";
 import { agentsApi } from "../api/agents";
@@ -93,6 +94,7 @@ const ADVANCED_ADAPTER_OPTIONS: Array<{
 ];
 
 export function NewAgentDialog() {
+  const { t } = useTranslation();
   const { newAgentOpen, closeNewAgent, openNewIssue } = useDialog();
   const { selectedCompanyId } = useCompany();
   const navigate = useNavigate();
@@ -110,8 +112,8 @@ export function NewAgentDialog() {
     closeNewAgent();
     openNewIssue({
       assigneeAgentId: ceoAgent?.id,
-      title: "Criar um novo agente",
-      description: "(digite aqui que tipo de agente você deseja)",
+      title: t("page.agents.new_agent_dialog.issue.title"),
+      description: t("page.agents.new_agent_dialog.issue.description"),
     });
   }
 
@@ -141,7 +143,7 @@ export function NewAgentDialog() {
       >
         {/* Header */}
         <div className="flex items-center justify-between px-4 py-2.5 border-b border-border">
-          <span className="text-sm text-muted-foreground">Add a new agent</span>
+          <span className="text-sm text-muted-foreground">{t("page.agents.new_agent_dialog.title")}</span>
           <Button
             variant="ghost"
             size="icon-xs"
@@ -163,16 +165,12 @@ export function NewAgentDialog() {
                 <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-accent">
                   <Sparkles className="h-6 w-6 text-foreground" />
                 </div>
-                <p className="text-sm text-muted-foreground">
-                  We recommend letting your CEO handle agent setup — they know the
-                  org structure and can configure reporting, permissions, and
-                  adapters.
-                </p>
+                <p className="text-sm text-muted-foreground">{t("page.agents.new_agent_dialog.recommendation")}</p>
               </div>
 
               <Button className="w-full" size="lg" onClick={handleAskCeo}>
                 <Bot className="h-4 w-4 mr-2" />
-                Pedir ao CEO para criar um novo agente
+                {t("page.agents.new_agent_dialog.ask_ceo")}
               </Button>
 
               {/* Advanced link */}
@@ -181,7 +179,7 @@ export function NewAgentDialog() {
                   className="text-xs text-muted-foreground hover:text-foreground underline underline-offset-2 transition-colors"
                   onClick={handleAdvancedConfig}
                 >
-                  I want advanced configuration myself
+                  {t("page.agents.new_agent_dialog.advanced_link")}
                 </button>
               </div>
             </>
@@ -193,11 +191,9 @@ export function NewAgentDialog() {
                   onClick={() => setShowAdvancedCards(false)}
                 >
                   <ArrowLeft className="h-3.5 w-3.5" />
-                  Back
+                  {t("page.agents.new_agent_dialog.back")}
                 </button>
-                <p className="text-sm text-muted-foreground">
-                  Choose your adapter type for advanced setup.
-                </p>
+                <p className="text-sm text-muted-foreground">{t("page.agents.new_agent_dialog.choose_adapter")}</p>
               </div>
 
               <div className="grid grid-cols-2 gap-2">
@@ -211,7 +207,7 @@ export function NewAgentDialog() {
                   >
                     {opt.recommended && (
                       <span className="absolute -top-1.5 right-1.5 bg-green-500 text-white text-[9px] font-semibold px-1.5 py-0.5 rounded-full leading-none">
-                        Recommended
+                        {t("page.agents.new_agent_dialog.recommended")}
                       </span>
                     )}
                     <opt.icon className="h-4 w-4" />
