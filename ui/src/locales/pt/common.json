@@ -16,11 +16,21 @@
     "inbox": "Caixa de Entrada",
     "sections": {
       "work": "Trabalho",
-      "company": "Empresa"
+      "company": "Empresa",
+      "projects": "Projetos",
+      "agents": "Agentes"
     },
     "work": {
       "tasks": "Tarefas",
       "routines": "Rotinas"
+    },
+    "actions": {
+      "new_project": "Novo projeto",
+      "new_agent": "Novo agente"
+    },
+    "status": {
+      "paused_by_budget": "Pausado por orçamento",
+      "live_count": "{{count}} ao vivo"
     },
     "company_menu": {
       "org": "Org",
@@ -284,7 +294,84 @@
         "reject_failed": "Falha ao rejeitar",
         "approve_join_failed": "Falha ao aprovar solicitação de entrada",
         "reject_join_failed": "Falha ao rejeitar solicitação de entrada",
-        "archive_failed": "Falha ao arquivar chamado"
+        "control_failed": "Falha ao controlar serviços de runtime."
+      },
+      "components": {
+        "routineVariablesEditor": {
+          "title": "Variáveis",
+          "detected_hint": "Detectado pelos espaços reservados {{name}} nas instruções da rotina.",
+          "manual_run_hint": "Solicitar este valor ao usuário antes de cada execução manual.",
+          "placeholder_name": "Nome da variável",
+          "type": "Tipo",
+          "default_value": "Valor padrão",
+          "required": "Obrigatório",
+          "no_default": "Sem padrão",
+          "true": "Verdadeiro",
+          "false": "Falso",
+          "options": "Opções",
+          "default_option": "Opção padrão",
+          "instructions_hint": "Use os espaços reservados {{variable_name}} nas instruções para solicitar entradas quando a rotina for executada.",
+          "types": {
+            "text": "Texto",
+            "textarea": "Texto longo",
+            "number": "Número",
+            "boolean": "Booleano",
+            "select": "Seleção"
+          },
+          "routineRunVariablesDialog": {
+            "title": "Executar rotina",
+            "description": "Preencha as variáveis da rotina antes de iniciar a tarefa de execução.",
+            "no_value": "Sem valor",
+            "choose_value": "Escolha um valor",
+            "missing_required": "Faltando: {{fields}}",
+            "choose_workspace": "Escolha uma workspace existente antes de executar."
+          }
+        },
+        "scheduleEditor": {
+          "title": "Agendamento",
+          "choose_frequency": "Escolha a frequência...",
+          "custom_cron": "Expressão cron personalizada",
+          "cron_hint": "Cinco campos: minuto hora dia-do-mês mês dia-da-semana",
+          "at": "as",
+          "at_minute": "no minuto",
+          "on": "na",
+          "on_day": "no dia",
+          "no_schedule": "Nenhuma escala definida",
+          "every": "Toda(o)",
+          "monthly_on_the": "Mensalmente no dia {{day}} às {{time}}",
+          "presets": {
+            "every_minute": "Todo minuto",
+            "every_hour": "Toda hora",
+            "every_day": "Todo dia",
+            "weekdays": "Dias de semana",
+            "weekly": "Semanalmente",
+            "monthly": "Mensalmente",
+            "custom": "Personalizado (cron)"
+          },
+          "days": {
+            "mon": "Seg",
+            "tue": "Ter",
+            "wed": "Qua",
+            "thu": "Qui",
+            "fri": "Sex",
+            "sat": "Sáb",
+            "sun": "Dom"
+          },
+          "am": "AM",
+          "pm": "PM"
+        },
+        "liveRunWidget": {
+          "title": "Execuções ao Vivo",
+          "description": "Transmitido com a mesma interface de transcrição usada na página de detalhes da execução.",
+          "stop": "Parar",
+          "stopping": "Parando...",
+          "open_run": "Abrir execução",
+          "waiting_parsing": "Aguardando análise da transcrição...",
+          "waiting_output": "Aguardando saída da execução..."
+        },
+        "worktreeBanner": {
+          "worktree": "Árvore de Trabalho"
+        }
       },
       "agent_errors": {
         "one": "{{count}} agente com erros",
@@ -342,6 +429,105 @@
       "error": "Erro",
       "count_other": "{{count}} agentes",
       "live": "Ao vivo"
+    },
+    "routines": {
+      "title": "Rotinas",
+      "new_routine": "Nova Rotina",
+      "routine_title": "Título da rotina",
+      "add_instructions": "Adicionar instruções...",
+      "advanced_delivery": "Configurações avançadas de entrega",
+      "delivery_hint": "Mantenha os controles de política secundários à definição do trabalho.",
+      "concurrency": "Concorrência",
+      "catch_up": "Recuperação (Catch-up)",
+      "last_run": "Última execução",
+      "enabled": "Ativado",
+      "unknown": "Desconhecido",
+      "routine_created": "Rotina criada",
+      "routine_created_body": "Adicione o primeiro gatilho para transformá-la em um fluxo de trabalho ao vivo.",
+      "beta": "Beta",
+      "no_routines": "Nenhuma rotina ainda.",
+      "no_routines_hint": "Nenhuma rotina ainda. Use Criar rotina para definir o primeiro fluxo de trabalho recorrente.",
+      "select_company": "Selecione uma empresa para ver as rotinas.",
+      "description": "Definições de trabalho recorrentes que se materializam em problemas de execução auditáveis.",
+      "define_work_hint": "Defina primeiro o trabalho recorrente. A configuração do gatilho vem a seguir na página de detalhes.",
+      "for": "Para",
+      "in": "em",
+      "assignee": "Responsável",
+      "project": "Projeto",
+      "no_assignee": "Sem responsável",
+      "no_project": "Sem projeto",
+      "search_assignees": "Buscar responsáveis...",
+      "search_projects": "Buscar projetos...",
+      "no_assignees_found": "Nenhum responsável encontrado.",
+      "no_projects_found": "Nenhum projeto encontrado.",
+      "post_creation_hint": "Após a criação, o Paperclip leva você direto para a configuração do gatilho para agendamentos, webhooks ou execuções internas.",
+      "creating": "Criando...",
+      "load_failed": "Falha ao carregar rotinas",
+      "run_now": "Executar agora",
+      "update_failed": "Falha ao atualizar rotina",
+      "update_failed_body": "O Paperclip não pôde atualizar a rotina.",
+      "run_failed": "Falha na execução da rotina",
+      "run_failed_body": "O Paperclip não pôde iniciar a execução da rotina.",
+      "table": {
+        "name": "Nome",
+        "project": "Projeto",
+        "agent": "Agente",
+        "last_run": "Última execução",
+        "enabled": "Ativado"
+      },
+      "concurrency_descriptions": {
+        "coalesce": "Se uma execução já estiver ativa, mantenha apenas uma execução de acompanhamento na fila.",
+        "always": "Coloque cada ocorrência de gatilho na fila, mesmo que a rotina já esteja em execução.",
+        "skip": "Descarte novas ocorrências de gatilho enquanto uma execução ainda estiver ativa."
+      },
+      "catch_up_descriptions": {
+        "skip": "Ignore janelas que foram perdidas enquanto o agendador ou a rotina estavam pausados.",
+"capped": "Recupere janelas de agendamento perdidas em lotes limitados após a recuperação."
+      }
+    },
+    "routineDetail": {
+      "signing_mode": "Modo de assinatura",
+      "replay_window": "Janela de repetição (segundos)",
+      "unsaved_changes": "Alterações não salvas",
+      "add_trigger": "Adicionar gatilho",
+      "no_triggers": "Nenhum gatilho configurado ainda.",
+      "no_runs": "Nenhuma execução ainda.",
+      "no_activity": "Nenhuma atividade ainda.",
+      "kind": "Tipo",
+      "secret_warning": "Salve isso agora. O Paperclip não mostrará o valor secreto novamente.",
+      "next_run": "Próximo: {{date}}",
+      "save_trigger": "Salvar gatilho",
+      "rotate_secret": "Rotacionar segredo",
+      "webhook_trigger_created": "Gatilho de webhook criado",
+      "webhook_secret_rotated": "Segredo do webhook rotacionado",
+      "trigger_added": "Gatilho adicionado",
+      "trigger_added_body": "O agendamento da rotina foi salvo.",
+      "trigger_saved_body": "A atualização da cadência da rotina foi salva.",
+      "trigger_deleted": "Gatilho excluído",
+      "failed_add_trigger": "Falha ao adicionar gatilho",
+      "failed_update_trigger": "Falha ao atualizar gatilho",
+      "failed_delete_trigger": "Falha ao excluir gatilho",
+      "failed_rotate_secret": "Falha ao rotacionar segredo do webhook",
+      "failed_save_routine": "Falha ao salvar rotina",
+      "routine_saved": "Rotina salva",
+      "automation_paused": "Automação pausada.",
+      "automation_enabled": "Automação ativada.",
+      "run_started": "Execução da rotina iniciada",
+      "tabs": {
+        "triggers": "Gatilhos",
+        "runs": "Execuções",
+        "activity": "Atividade"
+      },
+      "signing_descriptions": {
+        "bearer": "Espera um token de portador (bearer) compartilhado no cabeçalho Authorization.",
+        "hmac_sha256": "Espera uma assinatura HMAC SHA-256 sobre a requisição usando o segredo compartilhado."
+      }
+    },
+    "projectWorkspace": {
+      "loading": "Carregando espaço de trabalho...",
+      "not_found": "Espaço de trabalho não encontrado para este projeto.",
+      "workspace_name": "Nome do espaço de trabalho",
+      "visibility": "Visibilidade"
     },
     "agentDetail": {
       "runs": {
@@ -644,6 +830,71 @@
           "copyFailed": "Não foi possível copiar o documento",
           "saveBeforeViewHistory": "Salve ou cancele suas alterações locais antes de visualizar uma revisão antiga."
         }
+      },
+      "common": {
+        "save": "Salvar",
+        "cancel": "Cancelar",
+        "edit": "Editar",
+        "delete": "Excluir",
+        "archive": "Arquivar",
+        "restore": "Restaurar",
+        "pause": "Pausar",
+        "enable": "Ativar",
+        "running": "Executando...",
+        "adding": "Adicionando...",
+        "on": "Ligado",
+        "off": "Desligado",
+        "coming_soon": "EM BREVE",
+        "labels": {
+          "label": "Rótulo",
+          "schedule": "Agendamento",
+          "last": "Último",
+          "url": "URL",
+          "secret": "Segredo"
+        },
+        "trigger_kinds": {
+          "schedule": "Agendamento",
+          "webhook": "Webhook",
+          "api": "API"
+        },
+        "accessibility": {
+          "skip_to_main": "Pular para o conteúdo principal",
+          "open_sidebar": "Abrir barra lateral",
+          "close_sidebar": "Fechar barra lateral",
+          "switch_theme": "Alternar para modo {{theme}}"
+        },
+        "navigation": {
+          "documentation": "Documentação",
+          "instance_settings": "Configurações da instância"
+        },
+        "command_palette": {
+          "placeholder": "Buscar tarefas, agentes, projetos...",
+          "no_results": "Nenhum resultado encontrado.",
+          "groups": {
+            "actions": "Ações",
+            "pages": "Páginas",
+            "issues": "Tarefas",
+            "agents": "Agentes",
+            "projects": "Projetos"
+          },
+          "actions": {
+            "create_issue": "Criar nova tarefa",
+            "create_agent": "Criar novo agente",
+            "create_project": "Criar novo projeto"
+          }
+        },
+        "policies": {
+          "coalesce_if_active": "Agrupar se ativo",
+          "always_enqueue": "Sempre enfileirar",
+          "skip_if_active": "Pular se ativo",
+          "skip_missed": "Pular perdidos",
+          "enqueue_missed_with_cap": "Enfileirar perdidos com limite"
+        },
+        "placeholders": {
+          "searchLabels": "Buscar etiquetas...",
+          "searchAssignees": "Buscar responsáveis...",
+          "searchProjects": "Buscar projetos..."
+        }
       }
     },
     "issueProperties": {
@@ -689,6 +940,34 @@
         "search_assignees": "Buscar responsáveis...",
         "no_assignees_found": "Nenhum responsável encontrado"
       }
+    }
+  },
+  "components": {
+    "routineVariables": {
+      "title": "Variáveis",
+      "name": "Nome",
+      "type": "Tipo",
+      "default_value": "Valor padrão",
+      "no_default": "Sem padrão",
+      "options": "Opções",
+      "options_placeholder": "alto, médio, baixo",
+      "default_option": "Opção padrão",
+      "no_value": "Sem valor",
+      "choose_value": "Escolha um valor"
+    },
+    "scheduleEditor": {
+      "frequency": "Frequência",
+      "choose_frequency": "Escolha a frequência...",
+      "at_minute": "no minuto",
+      "on_day": "no dia"
+    },
+    "worktree": {
+      "banner": "Árvore de trabalho (Worktree)"
+    },
+    "properties": {
+      "title": "Propriedades",
+      "project_name": "Nome do projeto",
+      "add_description": "Adicionar uma descrição..."
     }
   }
 }

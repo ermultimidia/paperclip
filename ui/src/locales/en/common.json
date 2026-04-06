@@ -16,7 +16,17 @@
     "inbox": "Inbox",
     "sections": {
       "work": "Work",
-      "company": "Company"
+      "company": "Company",
+      "projects": "Projects",
+      "agents": "Agents"
+    },
+    "actions": {
+      "new_project": "New project",
+      "new_agent": "New agent"
+    },
+    "status": {
+      "paused_by_budget": "Paused by budget",
+      "live_count": "{{count}} live"
     },
     "work": {
       "tasks": "Tasks",
@@ -174,6 +184,66 @@
     "done": "Done",
     "closed": "Closed"
   },
+  "common": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "edit": "Edit",
+    "delete": "Delete",
+    "archive": "Archive",
+    "restore": "Restore",
+    "pause": "Pause",
+    "enable": "Enable",
+    "running": "Running...",
+    "adding": "Adding...",
+    "on": "On",
+    "off": "Off",
+    "coming_soon": "COMING SOON",
+    "labels": {
+      "label": "Label",
+      "schedule": "Schedule",
+      "last": "Last",
+      "url": "URL",
+      "secret": "Secret"
+    },
+    "policies": {
+      "coalesce_if_active": "Coalesce if active",
+      "always_enqueue": "Always enqueue",
+      "skip_if_active": "Skip if active",
+      "skip_missed": "Skip missed",
+      "enqueue_missed_with_cap": "Enqueue missed with cap"
+    },
+    "trigger_kinds": {
+      "schedule": "Schedule",
+      "webhook": "Webhook",
+      "api": "API"
+    },
+    "accessibility": {
+      "skip_to_main": "Skip to Main Content",
+      "open_sidebar": "Open sidebar",
+      "close_sidebar": "Close sidebar",
+      "switch_theme": "Switch to {{theme}} mode"
+    },
+    "navigation": {
+      "documentation": "Documentation",
+      "instance_settings": "Instance settings"
+    },
+    "command_palette": {
+      "placeholder": "Search issues, agents, projects...",
+      "no_results": "No results found.",
+      "groups": {
+        "actions": "Actions",
+        "pages": "Pages",
+        "issues": "Issues",
+        "agents": "Agents",
+        "projects": "Projects"
+      },
+      "actions": {
+        "create_issue": "Create new issue",
+        "create_agent": "Create new agent",
+        "create_project": "Create new project"
+      }
+    }
+  },
   "actions": {
     "assign_task": "Assign Task",
     "run_heartbeat": "Run Heartbeat",
@@ -284,7 +354,84 @@
         "reject_failed": "Failed to reject",
         "approve_join_failed": "Failed to approve join request",
         "reject_join_failed": "Failed to reject join request",
-        "archive_failed": "Failed to archive issue"
+        "control_failed": "Failed to control runtime services."
+      },
+      "components": {
+        "routineVariablesEditor": {
+          "title": "Variables",
+          "detected_hint": "Detected from {{name}} placeholders in the routine instructions.",
+          "manual_run_hint": "Prompt the user for this value before each manual run.",
+          "placeholder_name": "Variable name",
+          "type": "Type",
+          "default_value": "Default value",
+          "required": "Required",
+          "no_default": "No default",
+          "true": "True",
+          "false": "False",
+          "options": "Options",
+          "default_option": "Default option",
+          "instructions_hint": "Use {{variable_name}} placeholders in the instructions to prompt for inputs when the routine runs.",
+          "types": {
+            "text": "Text",
+            "textarea": "Long text",
+            "number": "Number",
+            "boolean": "Boolean",
+            "select": "Dropdown"
+          }
+        },
+        "routineRunVariablesDialog": {
+          "title": "Run routine",
+          "description": "Fill in the routine variables before starting the execution issue.",
+          "no_value": "No value",
+          "choose_value": "Choose a value",
+          "missing_required": "Missing: {{fields}}",
+          "choose_workspace": "Choose an existing workspace before running."
+        },
+        "scheduleEditor": {
+          "title": "Schedule",
+          "choose_frequency": "Choose frequency...",
+          "custom_cron": "Custom cron expression",
+          "cron_hint": "Five fields: minute hour day-of-month month day-of-week",
+          "at": "at",
+          "at_minute": "at minute",
+          "on": "on",
+          "on_day": "on day",
+          "no_schedule": "No schedule set",
+          "every": "Every",
+          "monthly_on_the": "Monthly on the {{day}}{{suffix}} at {{time}}",
+          "presets": {
+            "every_minute": "Every minute",
+            "every_hour": "Every hour",
+            "every_day": "Every day",
+            "weekdays": "Weekdays",
+            "weekly": "Weekly",
+            "monthly": "Monthly",
+            "custom": "Custom (cron)"
+          },
+          "days": {
+            "mon": "Mon",
+            "tue": "Tue",
+            "wed": "Wed",
+            "thu": "Thu",
+            "fri": "Fri",
+            "sat": "Sat",
+            "sun": "Sun"
+          },
+          "am": "AM",
+          "pm": "PM"
+        },
+        "liveRunWidget": {
+          "title": "Live Runs",
+          "description": "Streamed with the same transcript UI used on the full run detail page.",
+          "stop": "Stop",
+          "stopping": "Stopping...",
+          "open_run": "Open run",
+          "waiting_parsing": "Waiting for transcript parsing...",
+          "waiting_output": "Waiting for run output..."
+        },
+        "worktreeBanner": {
+          "worktree": "Worktree"
+        }
       },
       "agent_errors": {
         "one": "{{count}} agent has errors",
@@ -343,6 +490,105 @@
       "count_one": "{{count}} agent",
       "count_other": "{{count}} agents",
       "live": "Live"
+    },
+    "routines": {
+      "title": "Routines",
+      "new_routine": "New Routine",
+      "routine_title": "Routine title",
+      "add_instructions": "Add instructions...",
+      "advanced_delivery": "Advanced delivery settings",
+      "delivery_hint": "Keep policy controls secondary to the work definition.",
+      "concurrency": "Concurrency",
+      "catch_up": "Catch-up",
+      "last_run": "Last run",
+      "enabled": "Enabled",
+      "unknown": "Unknown",
+      "routine_created": "Routine created",
+      "routine_created_body": "Add the first trigger to turn it into a live workflow.",
+      "beta": "Beta",
+      "no_routines": "No routines yet.",
+      "no_routines_hint": "No routines yet. Use Create routine to define the first recurring workflow.",
+      "select_company": "Select a company to view routines.",
+      "description": "Recurring work definitions that materialize into auditable execution issues.",
+      "define_work_hint": "Define the recurring work first. Trigger setup comes next on the detail page.",
+      "for": "For",
+      "in": "in",
+      "assignee": "Assignee",
+      "project": "Project",
+      "no_assignee": "No assignee",
+      "no_project": "No project",
+      "search_assignees": "Search assignees...",
+      "search_projects": "Search projects...",
+      "no_assignees_found": "No assignees found.",
+      "no_projects_found": "No projects found.",
+      "post_creation_hint": "After creation, Paperclip takes you straight to trigger setup for schedules, webhooks, or internal runs.",
+      "creating": "Creating...",
+      "load_failed": "Failed to load routines",
+      "run_now": "Run now",
+      "update_failed": "Failed to update routine",
+      "update_failed_body": "Paperclip could not update the routine.",
+      "run_failed": "Routine run failed",
+      "run_failed_body": "Paperclip could not start the routine run.",
+      "table": {
+        "name": "Name",
+        "project": "Project",
+        "agent": "Agent",
+        "last_run": "Last run",
+        "enabled": "Enabled"
+      },
+      "concurrency_descriptions": {
+        "coalesce": "If a run is already active, keep just one follow-up run queued.",
+        "always": "Queue every trigger occurrence, even if the routine is already running.",
+        "skip": "Drop new trigger occurrences while a run is still active."
+      },
+      "catch_up_descriptions": {
+        "skip": "Ignore windows that were missed while the scheduler or routine was paused.",
+        "capped": "Catch up missed schedule windows in capped batches after recovery."
+      }
+    },
+    "routineDetail": {
+      "signing_mode": "Signing mode",
+      "replay_window": "Replay window (seconds)",
+      "unsaved_changes": "Unsaved changes",
+      "add_trigger": "Add trigger",
+      "no_triggers": "No triggers configured yet.",
+      "no_runs": "No runs yet.",
+      "no_activity": "No activity yet.",
+      "kind": "Kind",
+      "secret_warning": "Save this now. Paperclip will not show the secret value again.",
+      "next_run": "Next: {{date}}",
+      "save_trigger": "Save trigger",
+      "rotate_secret": "Rotate secret",
+      "webhook_trigger_created": "Webhook trigger created",
+      "webhook_secret_rotated": "Webhook secret rotated",
+      "trigger_added": "Trigger added",
+      "trigger_added_body": "The routine schedule was saved.",
+      "trigger_saved_body": "The routine cadence update was saved.",
+      "trigger_deleted": "Trigger deleted",
+      "failed_add_trigger": "Failed to add trigger",
+      "failed_update_trigger": "Failed to update trigger",
+      "failed_delete_trigger": "Failed to delete trigger",
+      "failed_rotate_secret": "Failed to rotate webhook secret",
+      "failed_save_routine": "Failed to save routine",
+      "routine_saved": "Routine saved",
+      "automation_paused": "Automation paused.",
+      "automation_enabled": "Automation enabled.",
+      "run_started": "Routine run started",
+      "tabs": {
+        "triggers": "Triggers",
+        "runs": "Runs",
+        "activity": "Activity"
+      },
+      "signing_descriptions": {
+        "bearer": "Expect a shared bearer token in the Authorization header.",
+        "hmac_sha256": "Expect an HMAC SHA-256 signature over the request using the shared secret."
+      }
+    },
+    "projectWorkspace": {
+      "loading": "Loading workspace...",
+      "not_found": "Workspace not found for this project.",
+      "workspace_name": "Workspace name",
+      "visibility": "Visibility"
     },
     "agentDetail": {
       "runs": {
@@ -690,6 +936,34 @@
         "search_assignees": "Search assignees...",
         "no_assignees_found": "No assignees found"
       }
+    }
+  },
+  "components": {
+    "routineVariables": {
+      "title": "Variables",
+      "name": "Name",
+      "type": "Type",
+      "default_value": "Default value",
+      "no_default": "No default",
+      "options": "Options",
+      "options_placeholder": "high, medium, low",
+      "default_option": "Default option",
+      "no_value": "No value",
+      "choose_value": "Choose a value"
+    },
+    "scheduleEditor": {
+      "frequency": "Frequency",
+      "choose_frequency": "Choose frequency...",
+      "at_minute": "at minute",
+      "on_day": "on day"
+    },
+    "worktree": {
+      "banner": "Worktree"
+    },
+    "properties": {
+      "title": "Properties",
+      "project_name": "Project name",
+      "add_description": "Add a description..."
     }
   }
 }
