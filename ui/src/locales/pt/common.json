@@ -1266,6 +1266,89 @@
       "issues_one": "{{count}} chamado",
       "issues_other": "{{count}} chamados"
     },
+    "instanceSettings": {
+      "title": "Configuracoes da instancia",
+      "nav": {
+        "general": "Geral",
+        "heartbeats": "Heartbeats",
+        "experimental": "Experimental",
+        "plugins": "Plugins"
+      },
+      "general": {
+        "loading": "Carregando configuracoes gerais...",
+        "description": "Configure padroes da instancia que afetam como logs visiveis ao operador sao exibidos.",
+        "censor_username": {
+          "title": "Ocultar usuario nos logs",
+          "description": "Oculta o trecho de usuario em caminhos de diretorio home e em logs similares visiveis ao operador. Mencoes avulsas de usuario fora de caminhos ainda nao sao mascaradas na transcricao ao vivo. Isso vem desativado por padrao.",
+          "aria": "Alternar ocultacao de usuario nos logs"
+        },
+        "keyboard_shortcuts": {
+          "title": "Atalhos de teclado",
+          "description": "Ativa atalhos de teclado do app, incluindo navegacao da caixa de entrada e atalhos globais como criar chamados ou alternar paineis. Isso vem desativado por padrao.",
+          "aria": "Alternar atalhos de teclado"
+        },
+        "feedback_sharing": {
+          "title": "Compartilhamento de feedback de IA",
+          "description": "Controla se votos positivos e negativos podem enviar a saida de IA votada para a Paperclip Labs. Os votos sempre ficam salvos localmente.",
+          "terms": "Leia nossos termos de servico",
+          "no_default": "Ainda nao ha padrao salvo. A proxima escolha de positivo ou negativo perguntara uma vez e salvara a resposta aqui.",
+          "allowed_label": "Sempre permitir",
+          "allowed_description": "Compartilha automaticamente as saidas de IA votadas.",
+          "not_allowed_label": "Nao permitir",
+          "not_allowed_description": "Mantem as saidas de IA votadas somente localmente.",
+          "dev_note": "Para testar novamente o prompt de primeiro uso em ambiente local, remova a chave feedbackDataSharingPreference da linha JSON instance_settings.general desta instancia, ou defina de volta para \"prompt\". Sem valor e \"prompt\" significam que nenhum padrao foi escolhido ainda."
+        },
+        "errors": {
+          "load_failed": "Falha ao carregar configuracoes gerais.",
+          "update_failed": "Falha ao atualizar configuracoes gerais."
+        }
+      },
+      "heartbeats": {
+        "title": "Heartbeats do agendador",
+        "loading": "Carregando heartbeats do agendador...",
+        "description": "Agentes com heartbeat por timer ativado em todas as suas empresas.",
+        "active": "ativos",
+        "disabled": "desativados",
+        "company_one": "empresa",
+        "company_other": "empresas",
+        "agent_one": "agente",
+        "agent_other": "agentes",
+        "confirm_disable_all": "Desativar heartbeats de timer para todos os {{count}} {{noun}} habilitados?",
+        "disable_all": "Desativar todos",
+        "disabling": "Desativando...",
+        "empty": "Nenhum heartbeat do agendador corresponde ao criterio atual.",
+        "never": "nunca",
+        "full_agent_config": "Configuracao completa do agente",
+        "disable_timer": "Desativar heartbeat por timer",
+        "enable_timer": "Ativar heartbeat por timer",
+        "errors": {
+          "load_failed": "Falha ao carregar heartbeats do agendador.",
+          "update_failed": "Falha ao atualizar heartbeat.",
+          "disable_all_failed": "Falha ao desativar todos os heartbeats.",
+          "unknown_error": "Erro desconhecido",
+          "disable_one": "Falha ao desativar 1 heartbeat de timer: {{detail}}",
+          "disable_many": "Falha ao desativar {{failed}} de {{total}} heartbeats de timer. Primeiro erro: {{detail}}"
+        }
+      },
+      "experimental": {
+        "loading": "Carregando configuracoes experimentais...",
+        "description": "Ative recursos que ainda estao sendo avaliados antes de virarem comportamento padrao.",
+        "enable_isolated_workspaces": {
+          "title": "Ativar workspaces isolados",
+          "description": "Mostra controles de workspace de execucao na configuracao de projeto e permite comportamento de workspace isolado para execucoes novas e existentes de chamados.",
+          "aria": "Alternar configuracao experimental de workspaces isolados"
+        },
+        "auto_restart_dev_server": {
+          "title": "Reiniciar servidor dev automaticamente quando ocioso",
+          "description": "No `pnpm dev:once`, aguarda todas as execucoes locais enfileiradas e em andamento terminarem e depois reinicia o servidor automaticamente quando mudancas de backend ou migracoes deixam o boot atual obsoleto.",
+          "aria": "Alternar reinicio protegido do servidor dev"
+        },
+        "errors": {
+          "load_failed": "Falha ao carregar configuracoes experimentais.",
+          "update_failed": "Falha ao atualizar configuracoes experimentais."
+        }
+      }
+    },
     "company_settings": {
       "title": "Configurações da Empresa",
       "general": "Geral",
