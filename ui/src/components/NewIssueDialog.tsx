@@ -220,23 +220,23 @@ function formatFileSize(file: File) {
 
 const statuses = [
   { value: "backlog", label: "Backlog", color: issueStatusText.backlog ?? issueStatusTextDefault },
-  { value: "todo", label: "Todo", color: issueStatusText.todo ?? issueStatusTextDefault },
-  { value: "in_progress", label: "In Progress", color: issueStatusText.in_progress ?? issueStatusTextDefault },
-  { value: "in_review", label: "In Review", color: issueStatusText.in_review ?? issueStatusTextDefault },
-  { value: "done", label: "Done", color: issueStatusText.done ?? issueStatusTextDefault },
+  { value: "todo", label: "A Fazer", color: issueStatusText.todo ?? issueStatusTextDefault },
+  { value: "in_progress", label: "Em Progresso", color: issueStatusText.in_progress ?? issueStatusTextDefault },
+  { value: "in_review", label: "Em Revisão", color: issueStatusText.in_review ?? issueStatusTextDefault },
+  { value: "done", label: "Concluído", color: issueStatusText.done ?? issueStatusTextDefault },
 ];
 
 const priorities = [
-  { value: "critical", label: "Critical", icon: AlertTriangle, color: priorityColor.critical ?? priorityColorDefault },
-  { value: "high", label: "High", icon: ArrowUp, color: priorityColor.high ?? priorityColorDefault },
-  { value: "medium", label: "Medium", icon: Minus, color: priorityColor.medium ?? priorityColorDefault },
-  { value: "low", label: "Low", icon: ArrowDown, color: priorityColor.low ?? priorityColorDefault },
+  { value: "critical", label: "Crítica", icon: AlertTriangle, color: priorityColor.critical ?? priorityColorDefault },
+  { value: "high", label: "Alta", icon: ArrowUp, color: priorityColor.high ?? priorityColorDefault },
+  { value: "medium", label: "Média", icon: Minus, color: priorityColor.medium ?? priorityColorDefault },
+  { value: "low", label: "Baixa", icon: ArrowDown, color: priorityColor.low ?? priorityColorDefault },
 ];
 
 const EXECUTION_WORKSPACE_MODES = [
-  { value: "shared_workspace", label: "Project default" },
-  { value: "isolated_workspace", label: "New isolated workspace" },
-  { value: "reuse_existing", label: "Reuse existing workspace" },
+  { value: "shared_workspace", label: "Padrão do projeto" },
+  { value: "isolated_workspace", label: "Novo workspace isolado" },
+  { value: "reuse_existing", label: "Reutilizar workspace existente" },
 ] as const;
 
 function defaultProjectWorkspaceIdForProject(project: { workspaces?: Array<{ id: string; isPrimary: boolean }>; executionWorkspacePolicy?: { defaultProjectWorkspaceId?: string | null } | null } | null | undefined) {
