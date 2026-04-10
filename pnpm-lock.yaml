@@ -506,6 +506,9 @@ importers:
       hermes-paperclip-adapter:
         specifier: ^0.2.0
         version: 0.2.0
+      hono:
+        specifier: ^4.12.11
+        version: 4.12.11
       jsdom:
         specifier: ^28.1.0
         version: 28.1.0(@noble/hashes@2.0.1)
@@ -4487,6 +4490,10 @@ packages:
   hermes-paperclip-adapter@0.2.0:
     resolution: {integrity: sha512-6CP5vxfvY4jY9XJK5zu4ZUL9aB7HHNtEMk6q7m1Pu9Gzoby1Vx5VNmVqte3NUO+1cvVK9Arj1f67xLagWkbo5Q==}
     engines: {node: '>=20.0.0'}
+
+  hono@4.12.11:
+    resolution: {integrity: sha512-r4xbIa3mGGGoH9nN4A14DOg2wx7y2oQyJEb5O57C/xzETG/qx4c7CVDQ5WMeKHZ7ORk2W0hZ/sQKXTav3cmYBA==}
+    engines: {node: '>=16.9.0'}
 
   html-encoding-sniffer@6.0.0:
     resolution: {integrity: sha512-CV9TW3Y3f8/wT0BRFc1/KAVQ3TUHiXmaAb6VW9vtiMFf7SLoMd1PdAc4W3KFOFETBJUb90KatHqlsZMWV+R9Gg==}
@@ -10393,6 +10400,8 @@ snapshots:
     dependencies:
       '@paperclipai/adapter-utils': 2026.325.0
       picocolors: 1.1.1
+
+  hono@4.12.11: {}
 
   html-encoding-sniffer@6.0.0(@noble/hashes@2.0.1):
     dependencies:
